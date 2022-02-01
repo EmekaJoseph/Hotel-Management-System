@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../pages/index.vue'
-// import App from '../views/Application/index.vue'
+import Gallery from '../pages/gallery.vue'
+import About from '../pages/about.vue'
 
 const routes = [
     {
@@ -8,6 +9,17 @@ const routes = [
         alias: '/home',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/gallery',
+        alias: '/photos',
+        name: 'Gallery',
+        component: Gallery
+    },
+    {
+        path: '/about',
+        name: 'About',
+        component: About
     },
     // {
     //     path: '/app',

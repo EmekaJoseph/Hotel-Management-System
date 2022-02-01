@@ -1,21 +1,48 @@
 <template>
     <div>
         <div class="largeFront">
-            <header id="header" class="fixed-top d-flex align-items-center">
-                <div class="container d-flex align-items-center justify-content-between">
-                    <div class="logo">
-                        <h4 class="fw-bold">
-                            HMS
-                        </h4>
+            <div class="container py-5">
+                <div class="row gy-3">
+                    <div class="col-md-6">
+                        <h4 class="fw-bold">Lorem</h4>
+                        <p class="fs-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim unde
+                            culpa
+                            hic doloribus non! Ea adipisci saepe ipsa quisquam animi eius deserunt, atque incidunt
+                            explicabo
+                            quod magni nobis similique quibusdam?</p>
+                        <button class="btn actionBtn">Book now</button>
                     </div>
-                    <nav id="navbar" class="navbar">
-                        <!-- nav here -->
-                    </nav>
+                    <!-- <div class="col-md-4">
+                        <div class="float-end">
+                            <div class="card">
+                                <div class="card-body">
+                                    <fieldset class="border rounded-3 p-3">
+                                        <legend class="float-none w-auto px-3 small">Drop a Message</legend>
+                                        <form class="form row gy-2">
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" placeholder="Your email..">
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <textarea class="form-control" rows="5"></textarea>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <button class="customBtn btn">Send Message</button>
+                                            </div>
+                                        </form>
+                                    </fieldset>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
-            </header>
+            </div>
         </div>
         <section class="container">
-            home
+            <div class="row justify-content-center">
+
+            </div>
         </section>
     </div>
 </template>
@@ -23,6 +50,9 @@
 <script setup>
     import { inject, ref, onMounted } from "vue";
     import axios from "axios";
+
+    const store = inject("codeStore");
+    const themeColor = store.values.theme;
 
     onMounted(() => {
         testApi()
@@ -44,26 +74,36 @@
 
 <style scoped>
     .largeFront {
-        min-height: 70vh;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -ms-flex-align: center;
-        align-items: center;
-        /* font-family: 'Poppins', sans-serif; */
-        font-family: 'Open Sans', sans-serif;
-        /* background: url("../ddd.jpg"); */
-        background-color: yellow;
+        min-height: 50vh;
+        background: url("./src/assets/images/cccc.jpg");
+        /* background-color: #ccc; */
         background-size: cover;
         background-position: center center;
         padding: 15px;
+        /* border-bottom-left-radius: 50%; */
+        color: #fff;
     }
 
-    #header {
-        z-index: 997;
-        transition: all 0.5s;
-        padding: 22px 0;
-        background: none;
+
+
+    .actionBtn {
+        background-color: v-bind(themeColor);
+        width: 120px;
+        color: #fff;
+    }
+
+    .actionBtn:hover {
+        color: #d8f070;
+        background-color: #5a0948;
+    }
+
+    .customBtn {
+        background-color: #3b032f;
+        color: #fff;
+    }
+
+    .customBtn:hover {
+        color: #d8f070;
+        background-color: #5a0948;
     }
 </style>

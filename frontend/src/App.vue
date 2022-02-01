@@ -1,17 +1,40 @@
 <script setup>
-
+  import { provide } from "vue";
+  import codeStore from "./codeStore";
+  import headerComponent from './components/headerComponent.vue'
+  provide("codeStore", codeStore);
 </script>
 
 <template>
-  <router-view v-slot="{Component}">
-    <transition name="route" mode="out-in">
-      <component :is="Component"></component>
-    </transition>
-  </router-view>
+  <div>
+    <headerComponent />
+    <div style="margin-top: 50px;">
+      <router-view v-slot="{Component}">
+        <transition name="fade" mode="out-in">
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+    </div>
+
+  </div>
 </template>
 
 <style>
   /* router transition */
+
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.2s;
+  }
+
+  .fade-enter,
+  .fade-leave-to {
+    opacity: 0;
+  }
+
+
+
   .route-enter-from {
     opacity: 0;
     transform: translateX(100px);

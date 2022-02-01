@@ -1,0 +1,21 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus,
+.page-link:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    /* background-color: none; */
+}
+
+
+  body {
+    margin: 0;
+    background:#eeeefd!important;
+    height: 100%!important;
+  }
+
+  html *{
+    font-family: 'Rubik', sans-serif;
+  }
+  
