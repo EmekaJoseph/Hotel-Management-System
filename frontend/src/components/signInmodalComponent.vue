@@ -1,0 +1,169 @@
+<template>
+    <div>
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="container">
+                        <div class="p-3">
+                            <ul class="nav nav-pills nav-fill justify-content-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" @click="form.showing = 1"
+                                        :class="{'active': (form.showing == 1)}" href="#">Sign In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" @click="form.showing = 2"
+                                        :class="{'active': (form.showing == 2)}" href="#">Register</a>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        <div v-show="form.showing == 1" class="modal-body">
+                            lorem
+                            Lorem ipsum dolor..
+                            <div class="row justify-content-center mt-3">
+                                <div class="p-2">
+                                    <fieldset class="border rounded-3 p-3">
+                                        <legend class="float-none w-auto px-3 small fw-bold">Log In</legend>
+                                        <form class="row gy-3">
+                                            <div class="col-md-12">
+                                                <input v-model="form.login.email" type="text" class="form-control"
+                                                    placeholder="email..">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input v-model="form.login.password" type="password"
+                                                    class="form-control" placeholder="password">
+                                            </div>
+
+                                            <div class="col-md-12 mt-3">
+                                                <button v-if="!form.connecting" @click.prevent="signInUser"
+                                                    class="customBtn btn btn-lg w-100">
+                                                    Sign In <i class="bi bi-arrow-right"></i>
+                                                </button>
+                                                <button v-else class="customBtn btn w-100" disabled>
+                                                    <div class="spinner-border" role="status">
+                                                        <span class="visually-hidden">Loading...</span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <button ref="closeBtn" type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+
+
+                        <div v-show="form.showing == 2" class="modal-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit?
+                            <div class="row justify-content-center mt-3">
+                                <div class="p-2">
+                                    <fieldset class="border rounded-3 p-3">
+                                        <legend class="float-none w-auto px-3 small fw-bold">Register</legend>
+                                        <form class="row gy-3">
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" placeholder="email..">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" placeholder="phone number">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="password" class="form-control" placeholder="password..">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="password" class="form-control"
+                                                    placeholder="repeat password..">
+                                            </div>
+
+                                            <div class="col-md-12 mt-3">
+                                                <button @click.prevent class="customBtn btn btn-lg w-100">
+                                                    Register <i class="bi bi-plus-circle-dotted"></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script setup>
+    import { inject, ref, reactive } from 'vue'
+
+    const store = inject("codeStore");
+    const themeColor = store.values.theme;
+
+    const form = reactive({
+        showing: 1,
+        connecting: false,
+
+
+        login: {
+            email: '',
+            password: ''
+        }
+    })
+
+    const closeBtn = ref(null)
+
+    function signInUser() {
+        form.connecting = true
+        setTimeout(() => {
+            closeBtn.value.click()
+            form.connecting = false
+        }, 3000);
+    }
+
+</script>
+
+<style scoped>
+    .nav-link {
+        color: #000;
+        font-weight: bold;
+    }
+
+    .nav-link:hover {
+        color: v-bind(themeColor);
+
+    }
+
+    .nav-pills .nav-link.active {
+        /* background-color: v-bind(themeColor); */
+        background-color: rgb(243, 240, 240);
+        border: 1px solid rgb(230, 227, 227);
+        color: v-bind(themeColor);
+    }
+
+    .customBtn {
+        background-color: v-bind(themeColor);
+        /* width: 200px; */
+        color: #fff;
+    }
+
+    .customBtn:hover {
+        color: #d8f070;
+        background-color: #5a0948;
+    }
+
+    .btn-close {
+        background-color: #f3d6ec;
+        color: #000;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 100%;
+    }
+</style>

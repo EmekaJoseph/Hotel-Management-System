@@ -12,6 +12,11 @@
                 <nav id="navbar" class="navbar d-none d-md-block">
                     <ul>
                         <li>
+                            <router-link class="nav-link scrollto" :class="{'active': activeC('Home')}" to="/">
+                                Home
+                            </router-link>
+                        </li>
+                        <li>
                             <router-link class="nav-link scrollto" :class="{'active': activeC('Gallery')}"
                                 to="/gallery">
                                 Gallery
@@ -21,6 +26,10 @@
                             <router-link class="nav-link scrollto" :class="{'active': activeC('About')}" to="/about">
                                 About Us
                             </router-link>
+                        </li>
+                        <li>
+                            <a class="nav-link scrollTo" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                href="#">Sign In</a>
                         </li>
                     </ul>
                 </nav>
@@ -32,24 +41,32 @@
         </header>
 
 
-
+        <signInModalComponent />
         <offCanvasComponentVue />
     </div>
 
 </template>
 
 <script setup>
+    import signInModalComponent from './signInModalComponent.vue';
     import offCanvasComponentVue from './offCanvasComponent.vue';
+
     import { useRouter, useRoute } from 'vue-router'
-    import { inject } from 'vue'
+    import { inject, onMounted } from 'vue'
 
     const store = inject("codeStore");
     const themeColor = store.values.theme;
+    const user = store.user;
 
     const route = useRoute()
     const activeC = (str) => {
         return route.name == str ? true : false
     }
+
+
+    onMounted(() => {
+        console.log(user.data, 'ddddddd')
+    })
 </script>
 
 <style scoped>

@@ -9,6 +9,11 @@ const values = reactive({
 
 })
 
+const user = reactive({
+    signedIn: false,
+    data: {},
+})
+
 const methods = {
 
 
@@ -17,5 +22,6 @@ const methods = {
 export default {
     values,
     methods,
-    constants
+    constants,
+    user
 }
