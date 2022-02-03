@@ -4,39 +4,61 @@
             <div class="container d-flex align-items-center justify-content-between">
                 <div class="logo">
                     <h4 class="fw-bold">
-                        <router-link @click="activeC()" class="text-decoration-none text-white" to="/">
+                        <router-link class="text-decoration-none text-white" to="/">
                             HMS
                         </router-link>
                     </h4>
                 </div>
-                <nav id="navbar" class="navbar d-none d-md-block">
-                    <ul>
-                        <li>
-                            <router-link class="nav-link scrollto" :class="{'active': activeC('Home')}" to="/">
-                                Home
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link class="nav-link scrollto" :class="{'active': activeC('Gallery')}"
-                                to="/gallery">
-                                Gallery
-                            </router-link>
-                        </li>
-                        <li>
-                            <router-link class="nav-link scrollto" :class="{'active': activeC('About')}" to="/about">
-                                About Us
-                            </router-link>
-                        </li>
-                        <li>
-                            <a class="nav-link scrollTo" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                href="#">Sign In</a>
-                        </li>
+                <div v-for="i in 10"></div>
+                <div>
+                    <nav id="navbar" class="navbar d-none d-md-block">
+                        <ul>
+                            <li>
+                                <router-link class="nav-link scrollto" :class="{'active': activeC('Home')}" to="/">
+                                    Home
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="nav-link scrollto" :class="{'active': activeC('Gallery')}"
+                                    to="/gallery">
+                                    Gallery
+                                </router-link>
+                            </li>
+                            <li>
+                                <router-link class="nav-link scrollto" :class="{'active': activeC('About')}"
+                                    to="/about">
+                                    About Us
+                                </router-link>
+                            </li>
+                            <!-- <li>
+                                    <a class="nav-link scrollTo" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                        href="#">Sign In</a>
+                                </li> -->
+                        </ul>
+                    </nav>
+                </div>
+                <span v-if="!user.signedIn" class="d-none d-md-block">
+                    <a class=" nav-link text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">
+                        Sign In</a>
+                </span>
+                <span v-else class="dropdown d-none d-md-block">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDrop" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-circle-fill small" style="color: #d8f070;"></i>&nbsp; {{user.data.name}} <i
+                            class="bi bi-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropOptionsPanel" aria-labelledby="userDrop">
+                        <li><a class="dropdown-item dropOptionsItem" @click.prevent="signOut" href="#"><i
+                                    class="bi bi-x-circle-fill"></i> Sign out</a></li>
+                        <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
+                        <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
                     </ul>
-                </nav>
+                </span>
                 <nav class="d-md-none navbar">
                     <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                         aria-controls="offcanvasRight"><i class="bi bi-list"></i></h3>
                 </nav>
+
             </div>
         </header>
 
@@ -52,11 +74,12 @@
     import offCanvasComponentVue from './offCanvasComponent.vue';
 
     import { useRouter, useRoute } from 'vue-router'
-    import { inject, onMounted } from 'vue'
+    import { inject, onMounted, ref } from 'vue'
 
     const store = inject("codeStore");
-    const themeColor = store.values.theme;
-    const user = store.user;
+    const color1 = ref(store.color.c1)
+    const color2 = ref(store.color.c2)
+    const user = ref(store.user);
 
     const route = useRoute()
     const activeC = (str) => {
@@ -64,8 +87,13 @@
     }
 
 
+    function signOut() {
+        user.value.signedIn = false
+    }
+
+
     onMounted(() => {
-        console.log(user.data, 'ddddddd')
+        // console.log(user.value.data, 'ddddddd')
     })
 </script>
 
@@ -75,9 +103,9 @@
         transition: all 0.5s;
         padding: 12px 0;
         /* background: none; */
-        background-color: v-bind(themeColor);
+        background-color: v-bind(color1);
         color: #fff;
-        border-bottom: #d8f070 1px solid;
+        border-bottom: 1px solid v-bind(color2);
     }
 
     .navbar {
@@ -119,13 +147,13 @@
 
     .navbar .active,
     .navbar .active:focus {
-        color: #d0db34;
+        color: v-bind(color2);
         background-color: #4d033b;
         border-radius: 20px;
     }
 
     .navbar a:hover {
-        color: #d0db34;
+        color: v-bind(color2);
         font-weight: bold;
     }
 
@@ -141,5 +169,35 @@
     .navbar .getstarted:hover {
         color: #fff;
         background: #4aa3df;
+    }
+
+    #userDrop {
+        color: #fff;
+        /* font-weight: bold; */
+    }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+    .dropOptionsPanel {
+        border-radius: 20px;
+        border: none;
+        padding: 0;
+    }
+
+    .dropOptionsItem:hover {
+        color: v-bind(color1);
+        background: none;
+        font-weight: bold;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+        display: block;
+        /* top: 100%; */
+    }
+
+    .dropdown>.dropdown-toggle:active {
+        pointer-events: none;
     }
 </style>

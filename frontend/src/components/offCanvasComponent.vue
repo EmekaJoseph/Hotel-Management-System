@@ -22,12 +22,21 @@
                     </li>
                 </ul>
             </div>
+            <div class="py-5">
+                <a @click.prevent class="accountSection" href="#" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    Sign In
+                </a>
+            </div>
         </div>
+
+        <signInModalComponent />
     </div>
 </template>
 
 <script setup>
     import { useRouter, useRoute } from 'vue-router'
+    import signInModalComponent from './signInModalComponent.vue';
     import { inject } from 'vue'
     const router = useRouter()
     const route = useRoute()
@@ -35,9 +44,9 @@
     const store = inject("codeStore");
     const themeColor = store.values.theme;
 
-    function goTo(des) {
+    function goTo(destination) {
         router.push({
-            name: des,
+            name: destination,
         })
         // console.log(themeColor);
     }
@@ -69,5 +78,13 @@
         background-color: #e9dde6;
         /* color: #3b032f; */
         color: v-bind(themeColor)
+    }
+
+    .accountSection {
+        margin: 45px;
+        font-weight: bold;
+        font-size: 16px;
+        text-decoration: none;
+        color: #000;
     }
 </style>

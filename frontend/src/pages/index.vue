@@ -3,9 +3,9 @@
         <div class="largeFront">
             <div class="container py-5">
                 <div class="row gy-3">
-                    <div class="col-md-6">
-                        <h4 class="fw-bold">Lorem</h4>
-                        <p class="fs-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim unde
+                    <div class="col-md-8" style="margin-top: 17%;">
+                        <h2 class="fw-bold">Lorem</h2>
+                        <p class="fs-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim unde
                             culpa
                             hic doloribus non! Ea adipisci saepe ipsa quisquam animi eius deserunt, atque incidunt
                             explicabo
@@ -14,34 +14,30 @@
                     </div>
                     <!-- <div class="col-md-4">
                         <div class="float-end">
-                            <div class="card">
-                                <div class="card-body">
-                                    <fieldset class="border rounded-3 p-3">
-                                        <legend class="float-none w-auto px-3 small">Drop a Message</legend>
-                                        <form class="form row gy-2">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control" placeholder="Your email..">
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <textarea class="form-control" rows="5"></textarea>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <button class="customBtn btn">Send Message</button>
-                                            </div>
-                                        </form>
-                                    </fieldset>
-
-                                </div>
-                            </div>
+                            someThing
                         </div>
                     </div> -->
                 </div>
             </div>
         </div>
-        <section class="container">
-            <div class="row justify-content-center">
-
+        <section class="container mt-2 cardsSection">
+            <h1 class="text-center my-4 fw-bold">- CHECK OUT LOREMS -</h1>
+            <div class="col-md-12">
+                <div class="row justify-content-center gy-4">
+                    <div v-for="i in 12" :key="i" class="col-md-4">
+                        <div class="card cardHolder">
+                            <img src="../assets/images/cccc.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">ROOM - {{i}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of
+                                    the card's content.</p>
+                                <button class="btn actionBtn2">Book now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -52,11 +48,11 @@
     import axios from "axios";
 
     const store = inject("codeStore");
-    const themeColor = store.values.theme;
+    const color1 = ref(store.color.c1)
+    const color2 = ref(store.color.c2)
 
     onMounted(() => {
-        testApi()
-        // console.log(`i am running`)
+        // testApi()
     })
 
     async function testApi() {
@@ -74,7 +70,7 @@
 
 <style scoped>
     .largeFront {
-        min-height: 50vh;
+        min-height: 100vh;
         background: url("./src/assets/images/cccc.jpg");
         /* background-color: #ccc; */
         background-size: cover;
@@ -82,28 +78,37 @@
         padding: 15px;
         /* border-bottom-left-radius: 50%; */
         color: #fff;
+        border-bottom: 2px solid v-bind(color2);
     }
 
-
-
     .actionBtn {
-        background-color: v-bind(themeColor);
-        width: 120px;
+        background-color: v-bind(color1);
+        width: 150px;
         color: #fff;
     }
 
     .actionBtn:hover {
-        color: #d8f070;
+        color: v-bind(color2);
         background-color: #5a0948;
     }
 
-    .customBtn {
-        background-color: #3b032f;
-        color: #fff;
+    .cardHolder:hover {
+        transform: scale(1.02);
     }
 
-    .customBtn:hover {
-        color: #d8f070;
+    .cardHolder {
+        height: 100%;
+    }
+
+    .actionBtn2 {
+        /* background-color: v-bind(color1); */
+        width: 150px;
+        border: 1px solid v-bind(color1);
+        color: v-bind(color1);
+    }
+
+    .actionBtn2:hover {
+        color: v-bind(color2);
         background-color: #5a0948;
     }
 </style>

@@ -11,8 +11,8 @@ button:focus,
 
   body {
     margin: 0;
-    background:#eeeefd!important;
-    height: 100%!important;
+    /* background:#eeeefd!important; */
+    /* height: 100%!important; */
   }
 
   html *{

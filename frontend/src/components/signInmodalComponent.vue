@@ -9,11 +9,11 @@
                         <div class="p-3">
                             <ul class="nav nav-pills nav-fill justify-content-center">
                                 <li class="nav-item">
-                                    <a class="nav-link" @click="form.showing = 1"
+                                    <a class="nav-link" @click.prevent="form.showing = 1"
                                         :class="{'active': (form.showing == 1)}" href="#">Sign In</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" @click="form.showing = 2"
+                                    <a class="nav-link" @click.prevent="form.showing = 2"
                                         :class="{'active': (form.showing == 2)}" href="#">Register</a>
                                 </li>
                             </ul>
@@ -29,18 +29,18 @@
                                         <legend class="float-none w-auto px-3 small fw-bold">Log In</legend>
                                         <form class="row gy-3">
                                             <div class="col-md-12">
-                                                <input v-model="form.login.email" type="text" class="form-control"
-                                                    placeholder="email..">
+                                                <input v-model="form.login.email" type="text"
+                                                    class="form-control form-control-lg" placeholder="email..">
                                             </div>
                                             <div class="col-md-12">
                                                 <input v-model="form.login.password" type="password"
-                                                    class="form-control" placeholder="password">
+                                                    class="form-control form-control-lg" placeholder="password">
                                             </div>
 
                                             <div class="col-md-12 mt-3">
                                                 <button v-if="!form.connecting" @click.prevent="signInUser"
                                                     class="customBtn btn btn-lg w-100">
-                                                    Sign In <i class="bi bi-arrow-right"></i>
+                                                    Sign In
                                                 </button>
                                                 <button v-else class="customBtn btn w-100" disabled>
                                                     <div class="spinner-border" role="status">
@@ -67,22 +67,22 @@
                                         <legend class="float-none w-auto px-3 small fw-bold">Register</legend>
                                         <form class="row gy-3">
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" placeholder="email..">
+                                                <input type="text" class="form-control form-control-lg" placeholder="email..">
                                             </div>
                                             <div class="col-md-12">
-                                                <input type="text" class="form-control" placeholder="phone number">
+                                                <input type="text" class="form-control form-control-lg" placeholder="phone number">
                                             </div>
                                             <div class="col-md-12">
-                                                <input type="password" class="form-control" placeholder="password..">
+                                                <input type="password" class="form-control form-control-lg" placeholder="password..">
                                             </div>
                                             <div class="col-md-12">
-                                                <input type="password" class="form-control"
+                                                <input type="password" class="form-control form-control-lg"
                                                     placeholder="repeat password..">
                                             </div>
 
                                             <div class="col-md-12 mt-3">
                                                 <button @click.prevent class="customBtn btn btn-lg w-100">
-                                                    Register <i class="bi bi-plus-circle-dotted"></i>
+                                                    Register
                                                 </button>
                                             </div>
                                         </form>
@@ -105,7 +105,8 @@
     import { inject, ref, reactive } from 'vue'
 
     const store = inject("codeStore");
-    const themeColor = store.values.theme;
+    const color1 = ref(store.color.c1)
+    const color2 = ref(store.color.c2)
 
     const form = reactive({
         showing: 1,
@@ -137,7 +138,7 @@
     }
 
     .nav-link:hover {
-        color: v-bind(themeColor);
+        color: v-bind(color1);
 
     }
 
@@ -145,17 +146,17 @@
         /* background-color: v-bind(themeColor); */
         background-color: rgb(243, 240, 240);
         border: 1px solid rgb(230, 227, 227);
-        color: v-bind(themeColor);
+        color: v-bind(color1);
     }
 
     .customBtn {
-        background-color: v-bind(themeColor);
+        background-color: v-bind(color1);
         /* width: 200px; */
         color: #fff;
     }
 
     .customBtn:hover {
-        color: #d8f070;
+        color: v-bind(color2);
         background-color: #5a0948;
     }
 

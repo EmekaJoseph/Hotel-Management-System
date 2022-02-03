@@ -5,13 +5,19 @@ const constants = {
 }
 
 const values = reactive({
-    theme: '#3b032f'
 
 })
 
+const color = reactive({
+    c1: '#3b032f',
+    c2: '#d8f070'
+})
+
 const user = reactive({
-    signedIn: false,
-    data: {},
+    signedIn: true,
+    data: {
+        name: 'Leo'
+    },
 })
 
 const methods = {
@@ -23,5 +29,6 @@ export default {
     values,
     methods,
     constants,
-    user
+    user,
+    color
 }
