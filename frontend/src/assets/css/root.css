@@ -18,4 +18,8 @@ button:focus,
   html *{
     font-family: 'Rubik', sans-serif;
   }
+
+  .hoverZoom:hover {
+    transform: scale(1.02);
+}
   

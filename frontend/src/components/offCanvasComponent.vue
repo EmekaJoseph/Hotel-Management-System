@@ -2,7 +2,7 @@
     <div>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel text-muted"><i class="bi bi-list"></i> MENU</h5>
+                <h5 id="offcanvasRightLabel text-muted">MENU <i class="bi bi-list"></i></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
@@ -23,26 +23,24 @@
                 </ul>
             </div>
             <div class="py-5">
-                <a @click.prevent class="accountSection" href="#" data-bs-toggle="modal"
-                    data-bs-target="#staticBackdrop">
-                    Sign In
+                <a @click.prevent class="accountSection" href="#" data-bs-toggle="modal" data-bs-target="#signInModal">
+                    <i class="bi bi-box-arrow-right"></i>&nbsp;Sign In
                 </a>
             </div>
         </div>
-
-        <signInModalComponent />
     </div>
 </template>
 
 <script setup>
     import { useRouter, useRoute } from 'vue-router'
-    import signInModalComponent from './signInModalComponent.vue';
-    import { inject } from 'vue'
+    import { inject, ref } from 'vue'
     const router = useRouter()
     const route = useRoute()
 
     const store = inject("codeStore");
-    const themeColor = store.values.theme;
+    const color1 = ref(store.color.c1)
+    const color2 = ref(store.color.c2)
+
 
     function goTo(destination) {
         router.push({
@@ -70,14 +68,14 @@
 
     .list-group-item {
         border: none;
-        font-weight: bold;
+        /* font-weight: bold; */
         margin-bottom: 15px;
     }
 
     .list-group-item.active {
         background-color: #e9dde6;
         /* color: #3b032f; */
-        color: v-bind(themeColor)
+        color: v-bind(color1)
     }
 
     .accountSection {

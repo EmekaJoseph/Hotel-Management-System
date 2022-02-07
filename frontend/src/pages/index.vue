@@ -20,20 +20,21 @@
                 </div>
             </div>
         </div>
-        <section class="container mt-2 cardsSection">
-            <h1 class="text-center my-4 fw-bold">- CHECK OUT LOREMS -</h1>
+        <section class="container">
+            <h1 class="text-center my-5 fw-bold">- CHECK OUT LOREMS -</h1>
             <div class="col-md-12">
                 <div class="row justify-content-center gy-4">
                     <div v-for="i in 12" :key="i" class="col-md-4">
-                        <div class="card cardHolder">
-                            <img src="../assets/images/cccc.jpg" class="card-img-top" alt="...">
+                        <div class="card cardHolder shadow p-2 hoverZoom">
+                            <img src="../assets/images/cccc.jpg" style="border-radius: 10px;" class="card-img-top"
+                                alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">ROOM - {{i}}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
                                 <p class="card-text">Some quick example text to build on the card title and make up the
                                     bulk of
                                     the card's content.</p>
-                                <button class="btn actionBtn2">Book now</button>
+                                <button @click="goToBookingPage(i+'fdddss')" class="btn actionBtn2">Book now</button>
                             </div>
                         </div>
                     </div>
@@ -46,6 +47,10 @@
 <script setup>
     import { inject, ref, onMounted } from "vue";
     import axios from "axios";
+
+    import { useRouter, useRoute } from 'vue-router'
+    const router = useRouter()
+    const route = useRoute()
 
     const store = inject("codeStore");
     const color1 = ref(store.color.c1)
@@ -64,6 +69,13 @@
         } catch (error) {
             console.log(error)
         }
+    }
+
+    function goToBookingPage(str) {
+        router.push({
+            name: 'Booking',
+            query: { bk: str }
+        })
     }
 
 </script>
@@ -92,12 +104,10 @@
         background-color: #5a0948;
     }
 
-    .cardHolder:hover {
-        transform: scale(1.02);
-    }
 
     .cardHolder {
         height: 100%;
+        border-radius: 10px;
     }
 
     .actionBtn2 {

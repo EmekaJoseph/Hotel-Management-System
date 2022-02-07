@@ -53,6 +53,9 @@
     opacity: 0;
   }
 
+
+
+
   .route-enter-from {
     opacity: 0;
     transform: translateX(100px);
@@ -70,4 +73,16 @@
   .route-leave-active {
     transition: all 0.3s ease-in;
   }
+
+
+
+  .xSlide-enter-active {
+        transition: all .3s ease;
+    }
+
+    .xSlide-enter-from,
+    .xSlide-leave-to {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
 </style>

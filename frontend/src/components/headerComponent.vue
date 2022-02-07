@@ -30,15 +30,11 @@
                                     About Us
                                 </router-link>
                             </li>
-                            <!-- <li>
-                                    <a class="nav-link scrollTo" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                                        href="#">Sign In</a>
-                                </li> -->
                         </ul>
                     </nav>
                 </div>
                 <span v-if="!user.signedIn" class="d-none d-md-block">
-                    <a class=" nav-link text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">
+                    <a class=" nav-link text-white" data-bs-toggle="modal" data-bs-target="#signInModal" href="#">
                         Sign In</a>
                 </span>
                 <span v-else class="dropdown d-none d-md-block">
@@ -48,10 +44,10 @@
                             class="bi bi-chevron-down"></i>
                     </a>
                     <ul class="dropdown-menu dropOptionsPanel" aria-labelledby="userDrop">
+                        <li><a class="dropdown-item dropOptionsItem" @click.prevent href="#"><i
+                                    class="bi bi-gear"></i>&nbsp;Settings</a></li>
                         <li><a class="dropdown-item dropOptionsItem" @click.prevent="signOut" href="#"><i
-                                    class="bi bi-x-circle-fill"></i> Sign out</a></li>
-                        <!-- <li><a class="dropdown-item" href="#">Another action</a></li> -->
-                        <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                                    class="bi bi-x-circle"></i>&nbsp;Sign out</a></li>
                     </ul>
                 </span>
                 <nav class="d-md-none navbar">
@@ -101,7 +97,7 @@
     #header {
         z-index: 997;
         transition: all 0.5s;
-        padding: 12px 0;
+        padding: 9px 0;
         /* background: none; */
         background-color: v-bind(color1);
         color: #fff;
@@ -173,6 +169,7 @@
 
     #userDrop {
         color: #fff;
+        font-size: 14px;
         /* font-weight: bold; */
     }
 
@@ -181,9 +178,15 @@
     }
 
     .dropOptionsPanel {
-        border-radius: 20px;
+        /* border-radius: 20px; */
         border: none;
-        padding: 0;
+        font-size: 14px;
+        padding: 10px 0px;
+    }
+
+
+    .dropdown-menu {
+        width: 100% !important;
     }
 
     .dropOptionsItem:hover {
@@ -192,12 +195,12 @@
         font-weight: bold;
     }
 
-    .dropdown:hover>.dropdown-menu {
+    /* .dropdown:hover>.dropdown-menu {
         display: block;
-        /* top: 100%; */
+        top: 100%;
     }
 
     .dropdown>.dropdown-toggle:active {
         pointer-events: none;
-    }
+    } */
 </style>

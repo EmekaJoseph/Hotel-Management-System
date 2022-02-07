@@ -28,7 +28,7 @@
   padding: 45px;
   /* font-weight: bold; */
   font-size: 15px;
-  background-color: rgb(20, 17, 17);
+  background-color: #eee
 }
 .text-mute{
   color:#97a84c;
