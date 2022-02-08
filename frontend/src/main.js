@@ -10,6 +10,10 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import './assets/css/root.css'
 
 
+//npm install vue3-date-time-picker   
+import 'vue3-date-time-picker/dist/main.css'
+
+
 const mainApp = createApp(App)
 mainApp.use(router)
 mainApp.mount('#app')

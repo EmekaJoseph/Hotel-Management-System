@@ -1,7 +1,7 @@
 <template>
     <div class="container bookingPage">
         <div class="row justify-content-center gy-3">
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <div class="card imgPanel hoverZoom">
                     <span class="largeImage">
                         <span class="nameText">Lorem's Best Room</span>
@@ -24,7 +24,7 @@
                     </p>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <div class="card albumPanel shadow">
                     <div class="d-flex justify-content-between">
                         <span class="fw-bold mb-1" style="font-size: 1.4rem;">Pictures</span>
@@ -59,7 +59,84 @@
             </div>
             <div class="col-md-7">
                 <div class="card bookingPanel h-100 shadow">
-                    <span class="fw-bold mb-3" style="font-size: 1.4rem;">Book Now</span>
+                    <div class="mb-3">
+                        <span class="fw-bold" style="font-size: 1.4rem;">Book Now</span> <br>
+                        <small class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque itaque
+                            sequi.</small>
+                    </div>
+
+                    <div class="p-3" style="background-color: #f5f5f5;">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <fieldset class="border rounded-3 p-3">
+                                        <legend class="float-none w-auto px-2 small fw-bold text-muted">
+                                            Time:</legend>
+                                        <div class="row g-3">
+                                            <div class="col-md-6">
+                                                <label class="fw-bold small">Check in:</label>
+                                                <DatepickerVue :enableTimePicker="false" placeholder="Select Date"
+                                                    autoApply />
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="fw-bold small">Check out:</label>
+                                                <DatepickerVue :enableTimePicker="false" placeholder="Select Date"
+                                                    autoApply />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <fieldset class="border rounded-3 p-3">
+                                        <legend class="float-none w-auto px-2 small fw-bold text-muted">
+                                            Guests:</legend>
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <label class="fw-bold small">Adults:</label>
+                                                <input v-model="bookForm.numAdults" type="number" class="form-control">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="fw-bold small">Children:</label>
+                                                <input v-model="bookForm.numChildren" type="number"
+                                                    class="form-control">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="fw-bold small">Total:</label>
+                                                <input v-model="bookForm.numTotal" type="number"
+                                                    class="form-control bg-white" disabled>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                    <fieldset class="border rounded-3 p-3">
+                                        <legend class="float-none w-auto px-2 small fw-bold text-muted">
+                                            Details:</legend>
+                                        <div class="row g-3">
+                                            <div class="col-md-12">
+                                                <label class="fw-bold small">Email:</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="fw-bold small">Name:</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label class="fw-bold small">Phone Number:</label>
+                                                <input type="number" class="form-control">
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-md-12">
+                                    <button @click.prevent class="customBtn btn btn-lg w-100">
+                                        Continue
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
             <!-- <div class="col-md-4">
@@ -79,7 +156,8 @@
 </template>
 
 <script setup>
-    import { inject, ref, onMounted, reactive, watch } from 'vue'
+    import { inject, ref, onMounted, reactive, watch, computed } from 'vue'
+    import DatepickerVue from 'vue3-date-time-picker';
 
     import { useRoute } from 'vue-router'
     const route = useRoute()
@@ -130,6 +208,22 @@
 
     watch(() => album.currentIndex, () => {
         showPhoto()
+    })
+
+
+
+    const bookForm = reactive({
+        inDate: '',
+        outDate: '',
+
+        numAdults: 0,
+        numChildren: 0,
+        numTotal: computed(() => { return bookForm.numAdults + bookForm.numChildren }),
+
+        name: '',
+        email: '',
+        phone: '',
+
     })
 
 
@@ -194,6 +288,16 @@
     .disabledBtn {
         pointer-events: none;
         background-color: #ccc !important;
+    }
 
+    .customBtn {
+        background-color: v-bind(color1);
+        /* width: 200px; */
+        color: #fff;
+    }
+
+    .customBtn:hover {
+        color: v-bind(color2);
+        background-color: #5a0948;
     }
 </style>
