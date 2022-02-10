@@ -5,102 +5,108 @@
             aria-labelledby="signInModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="container">
-                        <div class="p-3">
-                            <ul class="nav nav-pills nav-fill justify-content-center">
-                                <li class="nav-item">
-                                    <a class="nav-link" @click.prevent="form.showing = 1"
-                                        :class="{'active': (form.showing == 1)}" href="#">Sign In</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" @click.prevent="form.showing = 2"
-                                        :class="{'active': (form.showing == 2)}" href="#">Register</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="row justify-content-center">
 
 
-                        <div v-show="form.showing == 1" class="modal-body">
-                            lorem
-                            Lorem ipsum dolor..
-                            <div class="row justify-content-center mt-3">
-                                <div class="p-2">
-                                    <fieldset class="border rounded-3 p-3">
-                                        <legend class="float-none w-auto px-3 small fw-bold">Log In</legend>
-                                        <form class="row gy-3">
-                                            <div class="col-md-12">
-                                                <div class="form-floating">
-                                                    <input type="email" v-model="form.login.email" id="floatingEmail"
-                                                        class="form-control" placeholder="Email address">
-                                                    <label for="floatingEmail">Email address:</label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <div class="form-floating">
-                                                    <input type="password" v-model="form.login.password"
-                                                        id="floatingPass" class="form-control" placeholder="Password">
-                                                    <label for="floatingPass">Password:</label>
-                                                </div>
-                                            </div>
+                        <div class="col-md-10">
+                            <div class="p-3">
+                                <ul class="nav nav-pills nav-fill justify-content-center">
+                                    <li class="nav-item">
+                                        <a class="nav-link" @click.prevent="form.showing = 1"
+                                            :class="{'active': (form.showing == 1)}" href="#">Sign In</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" @click.prevent="form.showing = 2"
+                                            :class="{'active': (form.showing == 2)}" href="#">Register</a>
+                                    </li>
+                                </ul>
+                            </div>
 
-                                            <div class="col-md-12 mt-5">
-                                                <button v-if="!form.connecting" @click.prevent="signInUser"
-                                                    class="customBtn btn btn-lg w-100">
-                                                    Sign In
-                                                </button>
-                                                <button v-else class="customBtn btn w-100" disabled>
-                                                    <div class="spinner-border" role="status">
-                                                        <span class="visually-hidden">Loading...</span>
+
+                            <div v-show="form.showing == 1" class="modal-body">
+                                lorem
+                                Lorem ipsum dolor..
+                                <div class="row justify-content-center mt-3">
+                                    <div class="p-2">
+                                        <fieldset class="border rounded-3 p-3">
+                                            <legend class="float-none w-auto px-3 small fw-bold">Log In</legend>
+                                            <form class="row gy-3">
+                                                <div class="col-md-12">
+                                                    <div class="form-floating">
+                                                        <input type="email" v-model="form.login.email"
+                                                            id="floatingEmail" class="form-control"
+                                                            placeholder="Email address">
+                                                        <label for="floatingEmail">Email address:</label>
                                                     </div>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </fieldset>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-floating">
+                                                        <input type="password" v-model="form.login.password"
+                                                            id="floatingPass" class="form-control"
+                                                            placeholder="Password">
+                                                        <label for="floatingPass">Password:</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12 mt-5">
+                                                    <button v-if="!form.connecting" @click.prevent="signInUser"
+                                                        class="customBtn btn btn-lg w-100">
+                                                        Sign In
+                                                    </button>
+                                                    <button v-else class="customBtn btn w-100" disabled>
+                                                        <div class="spinner-border" role="status">
+                                                            <span class="visually-hidden">Loading...</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <button ref="closeBtn" type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                             </div>
-                            <div class="row justify-content-center">
-                                <button ref="closeBtn" type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                        </div>
 
 
-                        <div v-show="form.showing == 2" class="modal-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit?
-                            <div class="row justify-content-center mt-3">
-                                <div class="p-2">
-                                    <fieldset class="border rounded-3 p-3">
-                                        <legend class="float-none w-auto px-3 small fw-bold">Register</legend>
-                                        <form class="row gy-3">
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control form-control-lg"
-                                                    placeholder="email..">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input type="text" class="form-control form-control-lg"
-                                                    placeholder="phone number">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input type="password" class="form-control form-control-lg"
-                                                    placeholder="password..">
-                                            </div>
-                                            <div class="col-md-12">
-                                                <input type="password" class="form-control form-control-lg"
-                                                    placeholder="repeat password..">
-                                            </div>
+                            <div v-show="form.showing == 2" class="modal-body">
+                                Lorem ipsum dolor sit amet.
+                                <div class="row justify-content-center mt-3">
+                                    <div class="p-2">
+                                        <fieldset class="border rounded-3 p-3">
+                                            <legend class="float-none w-auto px-3 small fw-bold">Register</legend>
+                                            <form class="row gy-3">
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control form-control-lg"
+                                                        placeholder="email..">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input type="text" class="form-control form-control-lg"
+                                                        placeholder="phone number">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input type="password" class="form-control form-control-lg"
+                                                        placeholder="password..">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <input type="password" class="form-control form-control-lg"
+                                                        placeholder="repeat password..">
+                                                </div>
 
-                                            <div class="col-md-12 mt-5">
-                                                <button @click.prevent class="customBtn btn btn-lg w-100">
-                                                    Register
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </fieldset>
+                                                <div class="col-md-12 mt-5">
+                                                    <button @click.prevent class="customBtn btn btn-lg w-100">
+                                                        Register
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </fieldset>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-center">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <div class="row justify-content-center">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
                             </div>
                         </div>
                     </div>
