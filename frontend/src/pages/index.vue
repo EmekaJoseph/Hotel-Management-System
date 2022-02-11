@@ -20,6 +20,7 @@
                 </div>
             </div>
         </div>
+
         <section class="container">
             <h1 class="text-center my-5 fw-bold">- CHECK OUT LOREMS -</h1>
             <div class="col-md-12">
@@ -29,11 +30,13 @@
                             <img src="../assets/images/cccc.jpg" style="border-radius: 10px;" class="card-img-top"
                                 alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">ROOM - {{i}}</h5>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <div class="fw-bold">ROOM - {{i}}</div>
+                                    <div class="badge rounded-pill px-3" :class="classRand()">{{classRand()}}</div>
+                                </div>
                                 <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the card's content.</p>
+                                <p class="card-text small">Some quick example text to build on the card title and make
+                                    up the bulk of the card's content.</p>
                                 <button @click="goToBookingPage(i+'fdddss')" class="btn actionBtn2">Book now</button>
                             </div>
                         </div>
@@ -59,6 +62,19 @@
     onMounted(() => {
         // testApi()
     })
+
+
+
+    // list of classes
+    const roomsClasses = ref(['premium', 'exclusive'])
+    // var item = items[Math.floor(Math.random()*items.length)];
+    const classRand = () => {
+        return roomsClasses.value[Math.floor(Math.random() * 2)];
+    }
+
+    const ffs = ref('ffs')
+
+
 
     async function testApi() {
         let name = 'Wujyjossey'
@@ -120,5 +136,15 @@
     .actionBtn2:hover {
         color: v-bind(color2);
         background-color: #5a0948;
+    }
+
+    .premium {
+        color: #111;
+        background-color: #f8e4f4;
+    }
+
+    .exclusive {
+        color: #111;
+        background-color: #f2f5b3;
     }
 </style>

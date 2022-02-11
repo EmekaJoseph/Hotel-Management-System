@@ -14,19 +14,17 @@
                     <nav id="navbar" class="navbar d-none d-md-block">
                         <ul>
                             <li>
-                                <router-link class="nav-link scrollto" :class="{'active': activeC('Home')}" to="/">
+                                <router-link class="nav-link scrollto" to="/">
                                     Home
                                 </router-link>
                             </li>
                             <li>
-                                <router-link class="nav-link scrollto" :class="{'active': activeC('Gallery')}"
-                                    to="/gallery">
+                                <router-link class="nav-link scrollto" to="/gallery">
                                     Gallery
                                 </router-link>
                             </li>
                             <li>
-                                <router-link class="nav-link scrollto" :class="{'active': activeC('About')}"
-                                    to="/about">
+                                <router-link class="nav-link scrollto" to="/about">
                                     About Us
                                 </router-link>
                             </li>
@@ -78,9 +76,6 @@
     const user = ref(store.user);
 
     const route = useRoute()
-    const activeC = (str) => {
-        return route.name == str ? true : false
-    }
 
 
     function signOut() {
@@ -147,6 +142,7 @@
         background-color: #4d033b;
         border-radius: 20px;
     }
+
 
     .navbar a:hover {
         color: v-bind(color2);

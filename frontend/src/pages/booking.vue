@@ -1,72 +1,70 @@
 <template>
     <div class="container bookingPage">
-        <div class="row gy-3">
-            <div class="row gy-3">
-                <div class="col-md-6">
-                    <div class="col-md-12">
-                        <div class="card imgPanel hoverZoom">
-                            <span class="largeImage">
-                                <span class="nameText">Lorem's Best Room</span>
-                            </span>
-                        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="card imgPanel hoverZoom">
+                        <span class="largeImage">
+                            <span class="nameText">Lorem's Best Room</span>
+                        </span>
                     </div>
-
-                    <div class="col-md-12">
-                        <div class="card descPanel">
-                            <span class="fw-bold mb-3" style="font-size: 1.4rem;">Description</span>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A laboriosam cupiditate
-                                laudantium
-                                quisquam molestiae, quo eaque nobis ex vel quod amet dicta sequi nulla natus pariatur
-                                distinctio. Autem, repellendus sequi?
-                            </p>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos enim quasi corrupti
-                                ipsum!
-                                Laborum officiis voluptatem incidunt placeat! Tenetur non illo, voluptate obcaecati
-                                facilis
-                                perspiciatis maiores voluptatum ut totam officia.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-12">
-                        <div class="card albumPanel shadow">
-                            <div class="d-flex justify-content-between">
-                                <span class="fw-bold mb-1" style="font-size: 1.4rem;">Pictures</span>
-                                <div v-show="album.photos.length>1">
-                                    <nav aria-label="Page navigation">
-                                        <ul class="pagination pagination-sm">
-                                            <li class="page-item">
-                                                <a @click.prevent="album.currentIndex--" class="page-link"
-                                                    :class="{'disabledBtn': limit.prev()}" href="#"
-                                                    aria-label="Previous">
-                                                    <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
-                                                </a>
-                                            </li>
-                                            <li>&nbsp;</li>
-                                            <li>&nbsp;</li>
-                                            <li class="page-item">
-                                                <a @click.prevent="album.currentIndex++" class="page-link"
-                                                    :class="{'disabledBtn': limit.next()}" href="#" aria-label="Next">
-                                                    <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-
-                            <div class="card p-1">
-                                <img :src="'./src/assets/images/'+ album.currentPhoto.img" alt="">
-                            </div>
-                            <small class="text-center m-2">{{album.currentIndex + 1}}/{{album.photos.length}} -
-                                <span class="fw-bold">{{album.currentPhoto.title}}</span></small>
-                        </div>
-                    </div>
-
                 </div>
-                <div class="col-md-6">
+
+                <div class="col-md-12">
+                    <div class="card descPanel">
+                        <span class="fw-bold mb-3" style="font-size: 1.4rem;">Description</span>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A laboriosam cupiditate
+                            laudantium
+                            quisquam molestiae, quo eaque nobis ex vel quod amet dicta sequi nulla natus pariatur
+                            distinctio. Autem, repellendus sequi?
+                        </p>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos enim quasi corrupti
+                            ipsum!
+                            Laborum officiis voluptatem incidunt placeat! Tenetur non illo, voluptate obcaecati
+                            facilis
+                            perspiciatis maiores voluptatum ut totam officia.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card albumPanel shadow">
+                        <div class="d-flex justify-content-between">
+                            <span class="fw-bold mb-1" style="font-size: 1.4rem;">Pictures</span>
+                            <div v-show="album.photos.length>1">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination pagination-sm">
+                                        <li class="page-item">
+                                            <a @click.prevent="album.currentIndex--" class="page-link"
+                                                :class="{'disabledBtn': limit.prev()}" href="#" aria-label="Previous">
+                                                <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                                            </a>
+                                        </li>
+                                        <li>&nbsp;</li>
+                                        <li>&nbsp;</li>
+                                        <li class="page-item">
+                                            <a @click.prevent="album.currentIndex++" class="page-link"
+                                                :class="{'disabledBtn': limit.next()}" href="#" aria-label="Next">
+                                                <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="card p-1">
+                            <img :src="'./src/assets/images/'+ album.currentPhoto.img" alt="">
+                        </div>
+                        <small class="text-center m-2">{{album.currentIndex + 1}}/{{album.photos.length}} -
+                            <span class="fw-bold">{{album.currentPhoto.title}}</span></small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12 mb-4">
                     <div class="card bookingPanel shadow">
                         <div class="mb-3">
                             <span class="fw-bold" style="font-size: 1.4rem;">Book Now</span> <br>
@@ -123,7 +121,7 @@
                                     <div class="col-md-12">
                                         <fieldset class="border rounded-3 p-3">
                                             <legend class="float-none w-auto px-2 small fw-bold text-muted">
-                                                Details:</legend>
+                                                Contact:</legend>
                                             <div class="row g-3">
                                                 <div class="col-md-12">
                                                     <label class="fw-bold small">Email:</label>
@@ -154,11 +152,12 @@
                     </div>
                 </div>
             </div>
+        </div>
 
 
 
 
-            <!-- <div class="col-md-4">
+        <!-- <div class="col-md-4">
                 <div style="overflow-y: hidden;">
                     <div class="row p-2 justify-content-center" style="min-width: 75rem;">
                         <div class="card p-2 bg-secondary me-2" style="min-height: 270px; width: 18rem;">
@@ -170,7 +169,6 @@
                     </div>
                 </div>
             </div> -->
-        </div>
     </div>
 </template>
 

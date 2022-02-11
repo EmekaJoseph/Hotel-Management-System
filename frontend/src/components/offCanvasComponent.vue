@@ -2,11 +2,11 @@
     <div>
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel text-muted">MENU <i class="bi bi-list"></i></h5>
+                <h5 id="offcanvasRightLabel text-muted">HMS <i class="bi bi-list"></i></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body mt-5">
                 <ul class="list-group list-group-flush">
                     <li @click="goTo('Home')" class="list-group-item" :class="{'active': isActive('Home')}"
                         data-bs-dismiss="offcanvas">
