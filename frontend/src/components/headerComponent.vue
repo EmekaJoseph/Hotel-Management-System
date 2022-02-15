@@ -9,7 +9,7 @@
                         </router-link>
                     </h4>
                 </div>
-                <div v-for="i in 10"></div>
+                <div v-for="i in 10" :key="i"></div>
                 <div>
                     <nav id="navbar" class="navbar d-none d-md-block">
                         <ul>
@@ -44,13 +44,13 @@
                     <ul class="dropdown-menu dropOptionsPanel" aria-labelledby="userDrop">
                         <li><a class="dropdown-item dropOptionsItem" @click.prevent href="#"><i
                                     class="bi bi-gear"></i>&nbsp;Settings</a></li>
-                        <li><a class="dropdown-item dropOptionsItem" @click.prevent="signOut" href="#"><i
+                        <li><a class="dropdown-item dropOptionsItem" @click.prevent="user.signOut()" href="#"><i
                                     class="bi bi-x-circle"></i>&nbsp;Sign out</a></li>
                     </ul>
                 </span>
                 <nav class="d-md-none navbar">
-                    <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                        aria-controls="offcanvasRight"><i class="bi bi-list"></i></h3>
+                    <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasGeneral"
+                        aria-controls="offcanvasGeneral"><i class="bi bi-list"></i></h3>
                 </nav>
 
             </div>
@@ -64,23 +64,21 @@
 </template>
 
 <script setup>
-    import signInModalComponent from './signInModalComponent.vue';
     import offCanvasComponentVue from './offCanvasComponent.vue';
+    import signInModalComponent from './ModalComponent.vue';
+
 
     import { useRouter, useRoute } from 'vue-router'
-    import { inject, onMounted, ref } from 'vue'
-
-    const store = inject("codeStore");
-    const color1 = ref(store.color.c1)
-    const color2 = ref(store.color.c2)
-    const user = ref(store.user);
-
-    const route = useRoute()
+    import { onMounted, ref } from 'vue'
 
 
-    function signOut() {
-        user.value.signedIn = false
-    }
+
+    import { storeToRefs } from 'pinia'
+    import { useColorStore } from '@/stores/colorStore.js'
+    const { color1, color2 } = storeToRefs(useColorStore())
+
+    import { useUserStore } from '@/stores/userStore.js'
+    const user = useUserStore()
 
 
     onMounted(() => {

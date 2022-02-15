@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasGeneral" aria-labelledby="offcanvasGeneralLabel">
             <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel text-muted">HMS <i class="bi bi-list"></i></h5>
+                <h5 id="offcanvasGeneralLabel text-muted">HMS <i class="bi bi-list"></i></h5>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
             </div>
@@ -33,13 +33,14 @@
 
 <script setup>
     import { useRouter, useRoute } from 'vue-router'
-    import { inject, ref } from 'vue'
     const router = useRouter()
     const route = useRoute()
 
-    const store = inject("codeStore");
-    const color1 = ref(store.color.c1)
-    const color2 = ref(store.color.c2)
+
+    import { storeToRefs } from 'pinia'
+    import { useColorStore } from '@/stores/colorStore.js'
+    const { color1, color2 } = storeToRefs(useColorStore())
+
 
 
     function goTo(destination) {

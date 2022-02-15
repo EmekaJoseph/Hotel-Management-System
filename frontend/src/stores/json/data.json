@@ -1,0 +1,34 @@
+{
+    "images": [
+        {
+            "id": 1,
+            "image": "cccc.jpg",
+            "class": "exclusive"
+        },
+        {
+            "id": 2,
+            "image": "dddd.jpg",
+            "class": "exclusive"
+        },
+        {
+            "id": 3,
+            "image": "cccc.jpg",
+            "class": "premium"
+        },
+        {
+            "id": 4,
+            "image": "cccc.jpg",
+            "class": "exclusive"
+        },
+        {
+            "id": 5,
+            "image": "cccc.jpg",
+            "class": "premium"
+        },
+        {
+            "id": 6,
+            "image": "cccc.jpg",
+            "class": "premium"
+        }
+    ]
+}

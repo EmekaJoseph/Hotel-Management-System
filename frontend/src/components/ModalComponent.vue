@@ -120,9 +120,9 @@
         form.login.password = ''
     })
 
-    const store = inject("codeStore");
-    const color1 = ref(store.color.c1)
-    const color2 = ref(store.color.c2)
+    import { storeToRefs } from 'pinia'
+    import { useColorStore } from '@/stores/colorStore.js'
+    const { color1, color2 } = storeToRefs(useColorStore())
 
     const form = reactive({
         showing: 1,

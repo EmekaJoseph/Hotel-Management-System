@@ -1,5 +1,6 @@
 <template>
     <div>
+        <headerComponent />
         <div class="largeFront">
             <div class="container py-5">
                 <div class="row gy-3">
@@ -25,58 +26,57 @@
             <h1 class="text-center my-5 fw-bold">- CHECK OUT LOREMS -</h1>
             <div class="col-md-12">
                 <div class="row justify-content-center gy-4">
-                    <div v-for="i in 12" :key="i" class="col-md-4">
+                    <div v-for="i in images" :key="i" class="col-md-4">
                         <div class="card cardHolder shadow p-2 hoverZoom">
-                            <img src="../assets/images/cccc.jpg" style="border-radius: 10px;" class="card-img-top"
+                            <img :src="'../src/assets/images/' + i.image" style="border-radius: 10px;" class="card-img-top"
                                 alt="...">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-2">
-                                    <div class="fw-bold">ROOM - {{i}}</div>
-                                    <div class="badge rounded-pill px-3" :class="classRand()">{{classRand()}}</div>
+                                    <div class="fw-bold">ROOM - {{i.id}}</div>
+                                    <div class="badge rounded-pill px-3" :class="i.class">{{i.class}}</div>
                                 </div>
                                 <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
                                 <p class="card-text small">Some quick example text to build on the card title and make
                                     up the bulk of the card's content.</p>
-                                <button @click="goToBookingPage(i+'fdddss')" class="btn actionBtn2">Book now</button>
+                                <button @click="goToBookingPage(i.id+'fdddss')" class="btn actionBtn2">Book now</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <footerComponent/>
     </div>
 </template>
 
 <script setup>
-    import { inject, ref, onMounted } from "vue";
+    import headerComponent from '@/components/headerComponent.vue'
+    import footerComponent from "@/components/footerComponent.vue";
+    import { ref, onMounted } from "vue";
     import axios from "axios";
 
     import { useRouter, useRoute } from 'vue-router'
     const router = useRouter()
     const route = useRoute()
 
-    const store = inject("codeStore");
-    const color1 = ref(store.color.c1)
-    const color2 = ref(store.color.c2)
+    import { storeToRefs } from 'pinia'
+    import { useColorStore } from '@/stores/colorStore.js'
+    const cols = useColorStore()
+    const { color1, color2 } = storeToRefs(cols)
+
+    import jsonData from '../stores/json/data.json'
+    const images = ref(jsonData.images)
+
+
 
     onMounted(() => {
-        // testApi()
+        console.log(images.value)
     })
 
-
-
-    // list of classes
-    const roomsClasses = ref(['premium', 'exclusive'])
+    // random from array
     // var item = items[Math.floor(Math.random()*items.length)];
-    const classRand = () => {
-        return roomsClasses.value[Math.floor(Math.random() * 2)];
-    }
 
-    const ffs = ref('ffs')
-
-
-
-    async function testApi() {
+async function testApi() {
         let name = 'Wujyjossey'
         let url = `http://localhost/testApi/${name}`
         try {

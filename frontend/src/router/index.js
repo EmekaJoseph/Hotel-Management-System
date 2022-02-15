@@ -3,6 +3,7 @@ import Home from '../pages/index.vue'
 import Gallery from '../pages/gallery.vue'
 import About from '../pages/about.vue'
 import Booking from '../pages/booking.vue'
+import AdminLogin from '../pages/admin/login.vue'
 
 const routes = [
     {
@@ -28,15 +29,11 @@ const routes = [
         component: Booking,
         props: route => ({ query: route.query.bk })
     },
-    // {
-    //     path: '/app',
-    //     name: 'App',
-    //     component: App,
-    //     children: [
-    //         { path: '', component: App, alias: ['/login', 'login'] },
-    //     ],
-    // },
 
+
+    // Admin ############################### 
+    { path: '/admin', name: 'Admin', component: AdminLogin },
+    { path: '/admin/dashboard', name: 'Admin-Dashboard', component: () => import('../pages/admin/dashboard.vue') },
 
     {
         path: '/:pathMatch(.*)*',

@@ -1,25 +1,20 @@
 <script setup>
   import { provide } from "vue";
-  import codeStore from "./codeStore";
-  import footerComponent from "./components/footerComponent.vue";
-  import headerComponent from './components/headerComponent.vue'
-  provide("codeStore", codeStore);
+  // import codeStore from "./codeStore";
+  // provide("codeStore", codeStore);
 </script>
 
 <template>
   <div class="mainBody">
     <div class="bodySection">
-      <headerComponent />
-      <div style="margin-top: 50px;">
+      <div>
         <router-view v-slot="{Component}">
           <transition name="fade" mode="out-in">
             <component :is="Component"></component>
           </transition>
         </router-view>
       </div>
-
     </div>
-    <footerComponent class="footerSection" />
   </div>
 </template>
 
@@ -33,16 +28,7 @@
     padding-bottom: 8.5rem;
   }
 
-  .footerSection {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-  }
-
   /* router transition */
-
-
   .fade-enter-active,
   .fade-leave-active {
     transition: opacity 0.2s;
@@ -52,8 +38,6 @@
   .fade-leave-to {
     opacity: 0;
   }
-
-
 
 
   .route-enter-from {
