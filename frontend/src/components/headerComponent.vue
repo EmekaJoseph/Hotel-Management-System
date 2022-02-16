@@ -65,7 +65,7 @@
 
 <script setup>
     import offCanvasComponentVue from './offCanvasComponent.vue';
-    import signInModalComponent from './ModalComponent.vue';
+    import signInModalComponent from './signInPopUpComponent.vue';
 
 
     import { useRouter, useRoute } from 'vue-router'

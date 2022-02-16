@@ -70,7 +70,7 @@
                     <div class="col-md-12 mb-4">
                         <div class="card bookingPanel shadow">
                             <div class="mb-3">
-                                <span class="fw-bold" style="font-size: 1.4rem;">Book Now</span> <br>
+                                <span class="fw-bold" style="font-size: 1.4rem;">Booking</span> <br>
                                 <small class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                                     Atque
                                     itaque

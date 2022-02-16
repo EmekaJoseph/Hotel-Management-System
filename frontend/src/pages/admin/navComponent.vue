@@ -1,8 +1,8 @@
 <template>
     <div>
-        <nav class="navbar navbar-light fixed-top p-3 shadow-sm">
+        <nav class="navbar navbar-light fixed-top bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand small">HMS - Admin</a>
+                <a class="navbar-brand small">{{route.name}}</a>
                 <span class="d-none d-md-block">LOG OUT</span>
                 <nav class="d-md-none navbar">
                     <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdmin"
@@ -16,17 +16,21 @@
 
 <script setup>
     import offcanvas from './offCanvasComponent.vue'
+    import { useRoute } from 'vue-router'
+    const route = useRoute()
 
 </script>
 
 <style scoped>
     .navbar {
         margin-left: 250px;
+        padding: 15px;
     }
 
     @media screen and (max-width: 767px) {
         .navbar {
             margin-left: 0px;
+            padding: 5px;
         }
     }
 </style>

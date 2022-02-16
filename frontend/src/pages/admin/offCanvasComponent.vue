@@ -3,8 +3,7 @@
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasAdmin" aria-labelledby="offcanvasAdminLabel">
             <div class="offcanvas-header">
                 <h5 id="offcanvasAdminLabel text-muted">HMS</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
+                    <button type="button" class="btn btn-link text-white fs-1" data-bs-dismiss="offcanvas"><i class="bi bi-x"></i></button>
             </div>
             <div class="offcanvas-body mt-5">
                 

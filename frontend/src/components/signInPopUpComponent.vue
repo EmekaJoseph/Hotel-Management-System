@@ -15,7 +15,7 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" @click.prevent="form.showing = 2"
-                                        :class="{'active': (form.showing == 2)}" href="#">Register</a>
+                                        :class="{'active': (form.showing == 2)}" href="#">Create Account</a>
                                 </li>
                             </ul>
                         </div>
@@ -113,7 +113,7 @@
 </template>
 
 <script setup>
-    import { inject, ref, reactive, onMounted } from 'vue'
+    import { ref, reactive, onMounted } from 'vue'
 
     onMounted(() => {
         form.login.email = ''
