@@ -38,7 +38,7 @@
                                 <h6 class="card-subtitle mb-2 text-muted ">Card subtitle</h6>
                                 <p class="card-text small">Some quick example text to build on the card title and make
                                     up the bulk of the card's content.</p>
-                                <button @click="goToBookingPage(i.id+'fdddss')" class="btn actionBtn2">Book now</button>
+                                <button @click="goToBookingPage('Room-'+i.id)" class="btn actionBtn2">Book now</button>
                             </div>
                         </div>
                     </div>

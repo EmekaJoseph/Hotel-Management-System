@@ -3,18 +3,25 @@ import { defineStore } from "pinia";
 export const useUserStore = defineStore({
     id: "user",
     state: () => ({
-        signedIn: true,
+        admin: {
+            signedIn: (localStorage.getItem('hms-signIn') == null || localStorage.getItem('hms-signIn') == 0) ? false : true,
+        },
         data: {
             name: 'Leo'
         },
-        isAdmin: false
     }),
-    //   getters: {
-    //     doubleCount: (state) => state.counter * 2,
-    //   },
+    getters: {
+        adminCanAccess: (state) => (state.admin.signedIn) ? true : false,
+    },
     actions: {
-        signOut() {
-            this.signedIn = false;
+        signIn() {
+            localStorage.setItem('hms-signIn', 1)
+            this.admin.signedIn = true;
         },
+        signOut() {
+            localStorage.setItem('hms-signIn', 0)
+            this.admin.signedIn = false;
+        },
+
     },
 });

@@ -1,12 +1,12 @@
 <template>
-    <div class="container mainPage">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-4">
-                <div class="card p-4 border-0 shadow-sm">
+    <div class="container">
+        <div class="thForm">
+            <div class="col-12 col-lg-4 p-2">
+                <div class="card p-3 border-0 shadow">
                     <h3 class="text-center fw-bold mb-3">Admin Login</h3>
                     <form>
                         <div class="row gy-3">
-                            <span class="text-danger small text-center" v-html="errMsg"></span>
+                            <span class="text-danger small text-center" v-html="form.errMsg"></span>
                             <div class="col-md-12">
                                 <div class="form-floating">
                                     <input v-model="form.username" type="text" class="form-control form-control"
@@ -30,7 +30,7 @@
                                 <button type="submit" @click.prevent="loginUser"
                                     class="btn btn-lg w-100 customBtn">Login</button>
                             </div>
-                            <span class="forgot text-center"><a class="text-decoration-none" href="#">Forgot
+                            <span class="forgot text-center small mt-4"><a href="#">Forgot
                                     Password?</a></span>
                         </div>
                     </form>
@@ -46,6 +46,9 @@
     import { useColorStore } from '@/stores/colorStore.js'
     const { color1, color2 } = storeToRefs(useColorStore())
 
+    import { useUserStore } from '@/stores/userStore.js'
+    const user = useUserStore()
+
     import { useRouter } from 'vue-router'
     const router = useRouter()
 
@@ -55,35 +58,42 @@
         toggle: () => { pw.type = pw.type === 'password' ? 'text' : 'password' }
     })
 
-    const errMsg = ref('')
+    // const errMsg = ref('')
 
     const form = reactive({
         username: '',
-        password: ''
+        password: '',
+
+        errMsg: ''
     })
 
     function loginUser() {
         if (form.username.length == 0) {
-            errMsg.value = 'Enter a name'
+            form.errMsg = 'Enter a name'
             return false
         }
         else if (form.password.length == 0) {
-            errMsg.value = 'Enter a password biko'
+            form.errMsg = 'Enter a password biko'
             return false
         }
         else {
-            router.push({
-                name: 'Admin-Dashboard',
-            })
-            errMsg.value = ''
+            router.push({ name: 'Admin-Dashboard' })
+            form.errMsg = ''
+            user.signIn()
         }
     }
 
 </script>
 
 <style scoped>
-    .mainPage {
-        margin-top: 100px;
+    .thForm {
+        min-height: 100vh;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
     }
 
     .customBtn {
@@ -110,5 +120,15 @@
         top: 0;
         font-size: 20px;
         cursor: pointer;
+    }
+
+    .forgot a {
+        text-decoration: none;
+        color: v-bind(color1);
+        font-weight: bold;
+    }
+
+    .forgot a:hover {
+        color: rgb(216, 71, 71);
     }
 </style>

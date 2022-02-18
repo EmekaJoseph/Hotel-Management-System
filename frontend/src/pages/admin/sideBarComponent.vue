@@ -2,6 +2,15 @@
     <div>
         <div class="sidenav">
             <span class="brand">HMS</span>
+            <div class="menuSection">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><i class="bi bi-grid-fill"></i>&nbsp; Dashboard</li>
+                    <li class="list-group-item"><i class="bi bi-calendar-week-fill"></i>&nbsp; Orders</li>
+                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item">A fourth item</li>
+                    <li class="list-group-item">And a fifth one</li>
+                </ul>
+            </div>
         </div>
         <navComponent />
     </div>
@@ -31,7 +40,7 @@
         /* Stay at the top */
         left: 0;
         background-color: v-bind(colorSideBar);
-        /* Black */
+        
         overflow-x: hidden;
         /* Disable horizontal scroll */
         padding-top: 20px;
@@ -51,5 +60,19 @@
         .sidenav {
             display: none;
         }
+    }
+
+    .menuSection{
+        margin-top: 70px;
+    }
+
+    .list-group-flush .list-group-item{
+        background-color: transparent;
+        color: #fff;
+        font-weight: lighter;
+        margin-top: 10px;
+        margin-left: 20px;
+        border: none;
+        font-size: 18px;
     }
 </style>

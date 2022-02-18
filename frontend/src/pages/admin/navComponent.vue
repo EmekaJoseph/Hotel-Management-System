@@ -1,9 +1,9 @@
 <template>
     <div>
-        <nav class="navbar navbar-light fixed-top bg-light">
+        <nav class="navbar navbar-light fixed-top shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand small">{{route.name}}</a>
-                <span class="d-none d-md-block">LOG OUT</span>
+                <a class="navbar-brand small fw-bold">{{route.name}}</a>
+                <span class="d-none d-md-block shadow-sm logout-btn" @click="signOut">LOG OUT</span>
                 <nav class="d-md-none navbar">
                     <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdmin"
                         aria-controls="offcanvasAdmin"><i class="bi bi-list"></i></h3>
@@ -16,8 +16,17 @@
 
 <script setup>
     import offcanvas from './offCanvasComponent.vue'
-    import { useRoute } from 'vue-router'
+    import { useRouter, useRoute } from 'vue-router'
+    const router = useRouter()
     const route = useRoute()
+
+    import { useUserStore } from '@/stores/userStore.js'
+    const user = useUserStore()
+
+    function signOut() {
+        user.signOut()
+        router.replace({ name: 'Admin' })
+    }
 
 </script>
 
@@ -25,6 +34,21 @@
     .navbar {
         margin-left: 250px;
         padding: 15px;
+    }
+
+    .logout-btn {
+        margin: 0px;
+        padding: 5px 10px;
+        border-radius: 10px;
+        background-color: #fff;
+        cursor: pointer;
+        font-size: small;
+        font-weight: bold;
+    }
+
+    .logout-btn:hover {
+        background-color: rgb(247, 220, 220);
+
     }
 
     @media screen and (max-width: 767px) {

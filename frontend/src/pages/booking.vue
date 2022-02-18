@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <div class="card imgPanel hoverZoom">
                             <span class="largeImage">
-                                <span class="nameText">Lorem's Best Room</span>
+                                <span class="nameText">Lorem's {{route.query.bk}}</span>
                             </span>
                         </div>
                     </div>

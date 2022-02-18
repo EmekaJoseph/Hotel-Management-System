@@ -4,6 +4,8 @@ import Gallery from '../pages/gallery.vue'
 import About from '../pages/about.vue'
 import Booking from '../pages/booking.vue'
 import AdminLogin from '../pages/admin/login.vue'
+import { useUserStore } from '@/stores/userStore.js'
+
 
 const routes = [
     {
@@ -32,7 +34,8 @@ const routes = [
 
 
     // Admin ############################### 
-    { path: '/admin', name: 'Admin', component: AdminLogin },
+    { path: '/admin/login', name: 'Admin', component: AdminLogin },
+    { path: '/admin', redirect: { name: 'Admin' } },
     { path: '/admin/dashboard', name: 'Admin-Dashboard', component: () => import('../pages/admin/dashboard.vue') },
 
     {
@@ -46,6 +49,24 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
     linkActiveClass: 'active'
+})
+
+router.beforeEach(async (to, from, next) => {
+    const user = useUserStore()
+    let isLoggedIn = user.adminCanAccess
+    if (to.name == 'Home' || to.name == 'About' || to.name == 'Gallery' || to.name == 'Booking') {
+        next()
+    }
+    else if (to.name !== 'Admin' && !isLoggedIn) {
+        next({ name: 'Admin' })
+    }
+    else if (to.name == 'Admin' && isLoggedIn) {
+        next({ name: 'Admin-Dashboard' })
+    }
+    else {
+        next()
+    }
+
 })
 
 export default router
