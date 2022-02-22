@@ -20,6 +20,10 @@
     const router = useRouter()
     const route = useRoute()
 
+    import { storeToRefs } from 'pinia'
+    import { useColorStore } from '@/stores/colorStore.js'
+    const { color1, color2, colorSideBar } = storeToRefs(useColorStore())
+
     import { useUserStore } from '@/stores/userStore.js'
     const user = useUserStore()
 
@@ -47,7 +51,8 @@
     }
 
     .logout-btn:hover {
-        background-color: rgb(247, 220, 220);
+        background-color: rgb(241, 239, 239);
+        color: v-bind(color1);
 
     }
 

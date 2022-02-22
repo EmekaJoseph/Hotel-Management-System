@@ -11,7 +11,7 @@
                                 <div class="row justify-content-center gx-3">
                                     <div class="col-4 largeLogo">
                                         <!-- <img src="@/assets/images/dashboard/order.png" style="width:100%" alt=""> -->
-                                        <i class="bi bi-calendar-week-fill"></i>
+                                        <i class="bi bi-sort-down-alt"></i>
                                     </div>
                                     <div class="col-8 col-sm-8">
                                         <div class="float-end">
@@ -82,9 +82,10 @@
 
 <style scoped>
     .cusCard {
-        box-shadow: 0 .125rem .25rem rgba(197, 195, 195, 0.75);
+        /* box-shadow: 0 .125rem .25rem rgba(197, 195, 195, 0.75); */
         padding: 20px;
         border-radius: 20px;
+        border: 1px solid #eee
     }
 
     .largeLogo {

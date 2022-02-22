@@ -37,16 +37,17 @@ const routes = [
     { path: '/admin/login', name: 'Admin', component: AdminLogin },
     { path: '/admin', redirect: { name: 'Admin' } },
     { path: '/admin/dashboard', name: 'Admin-Dashboard', component: () => import('../pages/admin/dashboard.vue') },
+    { path: '/admin/orders', name: 'Admin-Orders', component: () => import('../pages/admin/orders.vue') },
 
     {
         path: '/:pathMatch(.*)*',
-        component: () => import(/* webpackChunkName: "about" */ '../pages/invalid.vue')
+        component: () => import('../pages/invalid.vue')
     },
 
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes,
     linkActiveClass: 'active'
 })
