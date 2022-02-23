@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../pages/index.vue'
-import Gallery from '../pages/gallery.vue'
-import About from '../pages/about.vue'
-import Booking from '../pages/booking.vue'
-import AdminLogin from '../pages/admin/login.vue'
+import Home from '../pages/General/index.vue'
+import Gallery from '../pages/General/gallery.vue'
+import About from '../pages/General/about.vue'
+import Booking from '../pages/General/booking.vue'
+import AdminLogin from '../pages/admin/views/login.vue'
 import { useUserStore } from '@/stores/userStore.js'
 
 
@@ -36,12 +36,14 @@ const routes = [
     // Admin ############################### 
     { path: '/admin/login', name: 'Admin', component: AdminLogin },
     { path: '/admin', redirect: { name: 'Admin' } },
-    { path: '/admin/dashboard', name: 'Admin-Dashboard', component: () => import('../pages/admin/dashboard.vue') },
-    { path: '/admin/orders', name: 'Admin-Orders', component: () => import('../pages/admin/orders.vue') },
+    { path: '/admin/dashboard', name: 'Dashboard', component: () => import('../pages/admin/views/dashboard.vue') },
+    { path: '/admin/orders', name: 'Orders', component: () => import('../pages/admin/views/orders.vue') },
+    { path: '/admin/rooms', name: 'Rooms', component: () => import('../pages/admin/views/rooms.vue') },
+    { path: '/admin/messages', name: 'Messages', component: () => import('../pages/admin/views/messages.vue') },
 
     {
         path: '/:pathMatch(.*)*',
-        component: () => import('../pages/invalid.vue')
+        component: () => import('../pages/General/invalid.vue')
     },
 
 ]
@@ -62,7 +64,7 @@ router.beforeEach(async (to, from, next) => {
         next({ name: 'Admin' })
     }
     else if (to.name == 'Admin' && isLoggedIn) {
-        next({ name: 'Admin-Dashboard' })
+        next({ name: 'Dashboard' })
     }
     else {
         next()

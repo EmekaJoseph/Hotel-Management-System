@@ -11,7 +11,7 @@
                             hic doloribus non! Ea adipisci saepe ipsa quisquam animi eius deserunt, atque incidunt
                             explicabo
                             quod magni nobis similique quibusdam?</p>
-                        <button class="btn actionBtn">Book now</button>
+                        <a href="#showCasePanel" class="btn actionBtn">Book now</a>
                     </div>
                     <!-- <div class="col-md-4">
                         <div class="float-end">
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <section class="container">
+        <section class="container" id="showCasePanel">
             <h1 class="text-center my-5 fw-bold">- CHECK OUT LOREMS -</h1>
             <div class="col-md-12">
                 <div class="row justify-content-center gy-4">
@@ -64,7 +64,7 @@
     const cols = useColorStore()
     const { color1, color2 } = storeToRefs(cols)
 
-    import jsonData from '../stores/json/data.json'
+    import jsonData from '@/stores/json/data.json'
     const images = ref(jsonData.images)
 
 

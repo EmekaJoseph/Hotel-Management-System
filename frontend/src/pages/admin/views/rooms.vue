@@ -2,13 +2,13 @@
     <div>
  <sideBarComponent />
  <div class="adminMain">
-     ccc
+     Rooms
  </div>
     </div>
 </template>
 
 <script setup>
-import sideBarComponent from './sideBarComponent.vue'
+import sideBarComponent from '../components/sideBarComponent.vue'
 
 </script>
 

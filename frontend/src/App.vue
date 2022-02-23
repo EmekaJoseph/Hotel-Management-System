@@ -9,7 +9,7 @@
     <div class="bodySection">
       <div>
         <router-view v-slot="{Component}">
-          <transition name="fade" mode="out-in">
+          <transition name="fad" mode="out-in">
             <component :is="Component"></component>
           </transition>
         </router-view>

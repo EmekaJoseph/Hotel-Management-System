@@ -6,15 +6,11 @@
                 <button type="button" class="btn btn-link text-white fs-1" data-bs-dismiss="offcanvas"><i
                         class="bi bi-x"></i></button>
             </div>
-            <div class="offcanvas-body mt-2">
-                <!-- <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul> -->
-            </div>
+
+            <!-- menu -->
+            <menuList />
+
+            <div class="offcanvas-body"></div>
             <span class="logOutSection">
                 <span class="logOutBtn" @click="signOut">
                     <i class="bi bi-x"></i>&nbsp;Log Out
@@ -26,6 +22,8 @@
 </template>
 
 <script setup>
+    import menuList from './menuListComponent.vue'
+
     import { storeToRefs } from 'pinia'
     import { useColorStore } from '@/stores/colorStore.js'
     const { color1, color2, colorSideBar } = storeToRefs(useColorStore())
@@ -53,17 +51,7 @@
         color: #fff;
     }
 
-    .list-group-item {
-        border: none;
-        /* font-weight: bold; */
-        margin-bottom: 15px;
-    }
 
-    .list-group-item.active {
-        background-color: #e9dde6;
-        /* color: #3b032f; */
-        color: v-bind(color1)
-    }
 
     .logOutBtn {
         /* margin: 45px; */

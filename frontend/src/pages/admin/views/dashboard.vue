@@ -5,7 +5,6 @@
             <div class="container">
                 <div class="col-md-12">
                     <div class="row justify-content-center gy-3">
-
                         <div class="col-md-4">
                             <div class="cusCard">
                                 <div class="row justify-content-center gx-3">
@@ -45,7 +44,7 @@
                                 <div class="row justify-content-center gx-3">
                                     <div class="col-4 largeLogo">
                                         <!-- <img src="@/assets/images/dashboard/bedroom.png" style="width:100%" alt=""> -->
-                                        <i class="bi bi-house-door-fill"></i>
+                                        <i class="bi bi-person-workspace"></i>
                                     </div>
                                     <div class="col-8 col-sm-8">
                                         <div class="float-end">
@@ -65,7 +64,7 @@
 
 <script setup>
     import { onMounted } from 'vue'
-    import sideBarComponent from './sideBarComponent.vue'
+    import sideBarComponent from '../components/sideBarComponent.vue'
 
     import { storeToRefs } from 'pinia'
     import { useColorStore } from '@/stores/colorStore.js'
@@ -82,15 +81,20 @@
 
 <style scoped>
     .cusCard {
-        /* box-shadow: 0 .125rem .25rem rgba(197, 195, 195, 0.75); */
+       
         padding: 20px;
         border-radius: 20px;
-        border: 1px solid #eee
+        border: 1px solid #eee;
+        box-shadow: 0 .125rem .25rem rgba(197, 195, 195, 0.75);
+    }
+
+    .cusCard:hover{
+        transform: scale(1.02);
     }
 
     .largeLogo {
-        /* color: v-bind(colorSideBar); */
-        color: #777;
+        color: v-bind(color1);
+        /* color: #777; */
         font-size: 4rem;
     }
 

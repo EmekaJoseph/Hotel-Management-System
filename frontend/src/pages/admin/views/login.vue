@@ -77,7 +77,7 @@
             return false
         }
         else {
-            router.push({ name: 'Admin-Dashboard' })
+            router.push({ name: 'Dashboard' })
             form.errMsg = ''
             user.signIn()
         }
