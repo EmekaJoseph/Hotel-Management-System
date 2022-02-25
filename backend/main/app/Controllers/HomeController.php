@@ -11,6 +11,8 @@ class HomeController extends BaseController
 
     public function testApi($data)
     {
-        return $this->response->setJSON('You sent: ' . $data);
+        $response = [];
+        $response['sentData'] = $data;
+        return $this->response->setJSON($response);
     }
 }

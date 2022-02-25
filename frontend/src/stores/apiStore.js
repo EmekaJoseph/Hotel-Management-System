@@ -1,9 +1,16 @@
-import { defineStore } from "pinia";
+import axios from 'axios'
 
-export const useAPIStore = defineStore({
-    id: "api",
-    state: () => ({
-        baseURL: 'http://localhost',//online
-        // baseURL: '',
-    }),
-});
+
+const apiClient = axios.create({
+    baseURL: 'http://localhost',
+    headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+    }
+})
+
+export default {
+    testApi(name) {
+        return apiClient.get('/testApi/' + name)
+    }
+}

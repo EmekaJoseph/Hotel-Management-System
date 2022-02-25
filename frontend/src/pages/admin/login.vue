@@ -2,7 +2,7 @@
     <div class="container">
         <div class="thForm">
             <div class="col-12 col-lg-4 p-2">
-                <div class="card p-3 border-0 shadow">
+                <div class="card p-3 border-0 shadow mb-3">
                     <h3 class="text-center fw-bold mb-3">Admin Login</h3>
                     <form>
                         <div class="row gy-3">
@@ -10,30 +10,36 @@
                             <div class="col-md-12">
                                 <div class="form-floating">
                                     <input v-model="form.username" type="text" class="form-control form-control"
-                                        id="floatUserName" placeholder="username">
+                                        id="floatUserName" placeholder="username" />
                                     <label for="floatUserName">username:</label>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-floating passF">
                                     <input :type="pw.type" v-model="form.password" class="form-control form-control"
-                                        id="floatpassw" placeholder="password">
+                                        id="floatpassw" placeholder="password" />
                                     <span @click="pw.toggle()">
                                         <i v-if="(pw.type == 'password')" class="bi bi-eye-slash"></i>
                                         <i v-else class="bi bi-eye"></i>
                                     </span>
                                     <label for="floatpassw">password:</label>
-
                                 </div>
                             </div>
                             <div class="col-md-12 mt-5">
                                 <button type="submit" @click.prevent="loginUser"
                                     class="btn btn-lg w-100 customBtn">Login</button>
                             </div>
-                            <span class="forgot text-center small mt-4"><a href="#">Forgot
-                                    Password?</a></span>
+                            <span class="forgot text-center small mt-4">
+                                <a href="#">
+                                    Forgot
+                                    Password?
+                                </a>
+                            </span>
                         </div>
                     </form>
+                </div>
+                <div class="text-center">
+                    <router-link class="text-decoration-none" to="/">Go to main site</router-link>
                 </div>
             </div>
         </div>

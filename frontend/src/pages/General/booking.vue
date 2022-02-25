@@ -177,8 +177,9 @@
 </template>
 
 <script setup>
-    import headerComponent from '@/components/headerComponent.vue'
-    import footerComponent from "@/components/footerComponent.vue";
+    import headerComponent from '@/components/general//headerComponent.vue'
+    import footerComponent from '@/components/general//footerComponent.vue';
+    
     import { inject, ref, onMounted, reactive, watch, computed } from 'vue'
     import DatepickerVue from 'vue3-date-time-picker';
 

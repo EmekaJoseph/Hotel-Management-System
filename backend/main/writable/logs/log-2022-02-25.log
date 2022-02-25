@@ -1,0 +1,6 @@
+CRITICAL - 2022-02-25 07:33:50 --> Undefined constant "App\Controllers\SentData"
+#0 C:\xampp\htdocs\hms\backend\main\system\CodeIgniter.php(825): App\Controllers\HomeController->testApi('Wujyjossey')
+#1 C:\xampp\htdocs\hms\backend\main\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\HomeController))
+#2 C:\xampp\htdocs\hms\backend\main\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\hms\backend\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}

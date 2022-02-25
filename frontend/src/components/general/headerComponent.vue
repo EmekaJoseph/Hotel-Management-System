@@ -4,9 +4,7 @@
             <div class="container d-flex align-items-center justify-content-between">
                 <div class="logo">
                     <h4 class="fw-bold">
-                        <router-link class="text-decoration-none text-white" to="/">
-                            HMS
-                        </router-link>
+                        <router-link class="text-decoration-none text-white" to="/">HMS</router-link>
                     </h4>
                 </div>
                 <div v-for="i in 10" :key="i"></div>
@@ -14,53 +12,55 @@
                     <nav id="navbar" class="navbar d-none d-md-block">
                         <ul>
                             <li>
-                                <router-link class="nav-link scrollto" to="/">
-                                    Home
-                                </router-link>
+                                <router-link class="nav-link scrollto" to="/">Home</router-link>
                             </li>
                             <li>
-                                <router-link class="nav-link scrollto" to="/gallery">
-                                    Gallery
-                                </router-link>
+                                <router-link class="nav-link scrollto" to="/gallery">Gallery</router-link>
                             </li>
                             <li>
-                                <router-link class="nav-link scrollto" to="/about">
-                                    About Us
-                                </router-link>
+                                <router-link class="nav-link scrollto" to="/about">About Us</router-link>
                             </li>
                         </ul>
                     </nav>
                 </div>
-                <span v-if="!user.signedIn" class="d-none d-md-block">
+                <!-- <span class="d-none d-md-block">
                     <a class=" nav-link text-white" data-bs-toggle="modal" data-bs-target="#signInModal" href="#">
                         Sign In</a>
-                </span>
-                <span v-else class="dropdown d-none d-md-block">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDrop" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="bi bi-circle-fill small" style="color: #d8f070;"></i>&nbsp; {{user.data.name}} <i
-                            class="bi bi-chevron-down"></i>
+                </span>-->
+                <span class="dropdown d-none d-md-block">
+                    <a class="nav-link dropdown-toggle" href="#" id="accountDrop" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                        <i class="bi bi-chevron-down"></i>
                     </a>
-                    <ul class="dropdown-menu dropOptionsPanel" aria-labelledby="userDrop">
-                        <li><a class="dropdown-item dropOptionsItem" @click.prevent href="#"><i
-                                    class="bi bi-gear"></i>&nbsp;Settings</a></li>
-                        <li><a class="dropdown-item dropOptionsItem" @click.prevent="user.signOut()" href="#"><i
-                                    class="bi bi-x-circle"></i>&nbsp;Sign out</a></li>
+                    <ul class="dropdown-menu" aria-labelledby="accountDrop">
+                        <li>
+                            <router-link class="dropdown-item" to="/admin">
+                                <i class="bi bi-person-fill"></i>&nbsp;Admin
+                            </router-link>
+                        </li>
+                        <!-- <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li class="text-muted">
+                            <a class="dropdown-item" @click.prevent href="#">
+                                <i class="bi bi-x-circle"></i>&nbsp;Sign out
+                            </a>
+                        </li> -->
                     </ul>
                 </span>
                 <nav class="d-md-none navbar">
                     <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasGeneral"
-                        aria-controls="offcanvasGeneral"><i class="bi bi-list"></i></h3>
+                        aria-controls="offcanvasGeneral">
+                        <i class="bi bi-list"></i>
+                    </h3>
                 </nav>
-
             </div>
         </header>
-
 
         <signInModalComponent />
         <offCanvasComponentVue />
     </div>
-
 </template>
 
 <script setup>
@@ -133,14 +133,12 @@
         margin-left: 5px;
     }
 
-
     .navbar .active,
     .navbar .active:focus {
         color: v-bind(color2);
         background-color: #4d033b;
         border-radius: 20px;
     }
-
 
     .navbar a:hover {
         color: v-bind(color2);
@@ -161,40 +159,38 @@
         background: #4aa3df;
     }
 
-    #userDrop {
+    #accountDrop {
         color: #fff;
         font-size: 14px;
-        /* font-weight: bold; */
     }
 
     .dropdown-toggle::after {
         display: none;
     }
 
-    .dropOptionsPanel {
-        /* border-radius: 20px; */
-        border: none;
-        font-size: 14px;
-        padding: 10px 0px;
-    }
-
-
     .dropdown-menu {
-        width: 100% !important;
+        border-bottom: 3px solid v-bind(color1);
+        border-radius: 0px;
+        font-size: 14px;
     }
 
-    .dropOptionsItem:hover {
+    /* .dropdown-menu {
+        width: 100% !important;
+    } */
+
+    .dropdown-item:hover {
         color: v-bind(color1);
         background: none;
         font-weight: bold;
     }
 
-    /* .dropdown:hover>.dropdown-menu {
+    .dropdown:hover>.dropdown-menu {
         display: block;
         top: 100%;
+        transition: opacity 1s ease-in;
     }
 
     .dropdown>.dropdown-toggle:active {
         pointer-events: none;
-    } */
+    }
 </style>

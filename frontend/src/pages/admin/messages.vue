@@ -2,13 +2,13 @@
     <div>
  <sideBarComponent />
  <div class="adminMain">
-     Orders
+     Notifications
  </div>
     </div>
 </template>
 
 <script setup>
-import sideBarComponent from '../components/sideBarComponent.vue'
+import sideBarComponent from '@/components/admin/sideBarComponent.vue'
 
 </script>
 

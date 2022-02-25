@@ -64,7 +64,7 @@
 
 <script setup>
     import { onMounted } from 'vue'
-    import sideBarComponent from '../components/sideBarComponent.vue'
+    import sideBarComponent from '@/components/admin/sideBarComponent.vue'
 
     import { storeToRefs } from 'pinia'
     import { useColorStore } from '@/stores/colorStore.js'

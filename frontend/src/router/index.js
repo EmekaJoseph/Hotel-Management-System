@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../pages/General/index.vue'
-import Gallery from '../pages/General/gallery.vue'
-import About from '../pages/General/about.vue'
-import Booking from '../pages/General/booking.vue'
-import AdminLogin from '../pages/admin/views/login.vue'
+// general
+import Home from '../pages/general/index.vue'
+import Gallery from '../pages/general/gallery.vue'
+import About from '../pages/general/about.vue'
+import Booking from '../pages/general/booking.vue'
+// admin
+import AdminLogin from '../pages/admin/login.vue'
+// store
 import { useUserStore } from '@/stores/userStore.js'
 
 
@@ -36,14 +39,14 @@ const routes = [
     // Admin ############################### 
     { path: '/admin/login', name: 'Admin', component: AdminLogin },
     { path: '/admin', redirect: { name: 'Admin' } },
-    { path: '/admin/dashboard', name: 'Dashboard', component: () => import('../pages/admin/views/dashboard.vue') },
-    { path: '/admin/orders', name: 'Orders', component: () => import('../pages/admin/views/orders.vue') },
-    { path: '/admin/rooms', name: 'Rooms', component: () => import('../pages/admin/views/rooms.vue') },
-    { path: '/admin/messages', name: 'Messages', component: () => import('../pages/admin/views/messages.vue') },
+    { path: '/admin/dashboard', name: 'Dashboard', component: () => import('../pages/admin/dashboard.vue') },
+    { path: '/admin/orders', name: 'Orders', component: () => import('../pages/admin/orders.vue') },
+    { path: '/admin/rooms', name: 'Rooms', component: () => import('../pages/admin/rooms.vue') },
+    { path: '/admin/messages', name: 'Messages', component: () => import('../pages/admin/messages.vue') },
 
     {
         path: '/:pathMatch(.*)*',
-        component: () => import('../pages/General/invalid.vue')
+        component: () => import('../pages/general/invalid.vue')
     },
 
 ]
