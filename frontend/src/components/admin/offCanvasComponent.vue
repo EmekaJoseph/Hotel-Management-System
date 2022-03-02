@@ -3,8 +3,9 @@
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasAdmin" aria-labelledby="offcanvasAdminLabel">
             <div class="offcanvas-header">
                 <h5 id="offcanvasAdminLabel text-muted">HMS</h5>
-                <button type="button" class="btn btn-link text-white fs-1" data-bs-dismiss="offcanvas"><i
-                        class="bi bi-x"></i></button>
+                <button type="button" class="btn btn-link text-white fs-1" data-bs-dismiss="offcanvas">
+                    <i class="bi bi-x"></i>
+                </button>
             </div>
 
             <!-- menu -->
@@ -16,17 +17,15 @@
                     <i class="bi bi-x"></i>&nbsp;Log Out
                 </span>
             </span>
-
         </div>
     </div>
 </template>
 
 <script setup>
-    import menuList from './menuListComponent.vue'
 
-    import { storeToRefs } from 'pinia'
-    import { useColorStore } from '@/stores/colorStore.js'
-    const { color1, color2, colorSideBar } = storeToRefs(useColorStore())
+    import { inject } from 'vue'
+    const cols = inject("customColors");
+    const { color1, color2, colorSideBar } = cols
 
     import { useUserStore } from '@/stores/userStore.js'
     const user = useUserStore()
@@ -51,8 +50,6 @@
         color: #fff;
     }
 
-
-
     .logOutBtn {
         /* margin: 45px; */
         font-weight: bold;
@@ -61,7 +58,6 @@
         color: #fff;
         display: flex;
         justify-content: center;
-
     }
 
     .logOutSection {

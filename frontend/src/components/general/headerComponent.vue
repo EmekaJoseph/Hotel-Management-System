@@ -1,3 +1,22 @@
+<script setup>
+    import offCanvasComponentVue from '@/components/general/offCanvasComponent.vue';
+    import signInModalComponent from '@/components/general/signInPopUpComponent.vue';
+
+
+    import { onMounted, ref, inject } from 'vue'
+
+    const cols = inject("customColors");
+    const { color1, color2 } = cols
+
+    import { useUserStore } from '@/stores/userStore.js'
+    const user = useUserStore()
+
+
+    onMounted(() => {
+        // console.log(user.value.data, 'ddddddd')
+    })
+</script>
+
 <template>
     <div>
         <header id="header" class="fixed-top d-flex align-items-center">
@@ -27,13 +46,23 @@
                     <a class=" nav-link text-white" data-bs-toggle="modal" data-bs-target="#signInModal" href="#">
                         Sign In</a>
                 </span>-->
+
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Hover me </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                        <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                        <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+                    </ul>
+                </li>-->
+
                 <span class="dropdown d-none d-md-block">
                     <a class="nav-link dropdown-toggle" href="#" id="accountDrop" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Account
                         <i class="bi bi-chevron-down"></i>
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="accountDrop">
+                    <ul class="dropdown-menu fade-up" aria-labelledby="accountDrop">
                         <li>
                             <router-link class="dropdown-item" to="/admin">
                                 <i class="bi bi-person-fill"></i>&nbsp;Admin
@@ -46,7 +75,7 @@
                             <a class="dropdown-item" @click.prevent href="#">
                                 <i class="bi bi-x-circle"></i>&nbsp;Sign out
                             </a>
-                        </li> -->
+                        </li>-->
                     </ul>
                 </span>
                 <nav class="d-md-none navbar">
@@ -63,28 +92,7 @@
     </div>
 </template>
 
-<script setup>
-    import offCanvasComponentVue from './offCanvasComponent.vue';
-    import signInModalComponent from './signInPopUpComponent.vue';
 
-
-    import { useRouter, useRoute } from 'vue-router'
-    import { onMounted, ref } from 'vue'
-
-
-
-    import { storeToRefs } from 'pinia'
-    import { useColorStore } from '@/stores/colorStore.js'
-    const { color1, color2 } = storeToRefs(useColorStore())
-
-    import { useUserStore } from '@/stores/userStore.js'
-    const user = useUserStore()
-
-
-    onMounted(() => {
-        // console.log(user.value.data, 'ddddddd')
-    })
-</script>
 
 <style scoped>
     #header {
@@ -162,6 +170,7 @@
     #accountDrop {
         color: #fff;
         font-size: 14px;
+        pointer-events: none;
     }
 
     .dropdown-toggle::after {
@@ -184,13 +193,23 @@
         font-weight: bold;
     }
 
-    .dropdown:hover>.dropdown-menu {
+    .dropdown .dropdown-menu {
         display: block;
-        top: 100%;
-        transition: opacity 1s ease-in;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+        margin-top: 0;
     }
 
-    .dropdown>.dropdown-toggle:active {
-        pointer-events: none;
+    .dropdown-menu.fade-up {
+        top: 180%;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        transition: 0.3s;
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+        transform: rotateX(0deg);
     }
 </style>

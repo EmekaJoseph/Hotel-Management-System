@@ -2,11 +2,13 @@
     <div>
         <nav class="navbar navbar-light fixed-top shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand small fw-bold">{{route.name}}</a>
+                <a class="navbar-brand small fw-bold">{{ route.name }}</a>
                 <span class="d-none d-md-block shadow-sm logout-btn" @click="signOut">LOG OUT</span>
                 <nav class="d-md-none navbar">
                     <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdmin"
-                        aria-controls="offcanvasAdmin"><i class="bi bi-list"></i></h3>
+                        aria-controls="offcanvasAdmin">
+                        <i class="bi bi-list"></i>
+                    </h3>
                 </nav>
             </div>
         </nav>
@@ -15,14 +17,16 @@
 </template>
 
 <script setup>
-    import offcanvas from './offCanvasComponent.vue'
+
+    import { onMounted, inject } from 'vue'
+
+    import offcanvas from '@/components/admin/offCanvasComponent.vue'
     import { useRouter, useRoute } from 'vue-router'
     const router = useRouter()
     const route = useRoute()
 
-    import { storeToRefs } from 'pinia'
-    import { useColorStore } from '@/stores/colorStore.js'
-    const { color1, color2, colorSideBar } = storeToRefs(useColorStore())
+    const cols = inject("customColors");
+    const { color1, color2, colorSideBar } = cols
 
     import { useUserStore } from '@/stores/userStore.js'
     const user = useUserStore()
@@ -54,7 +58,6 @@
     .logout-btn:hover {
         background-color: rgb(241, 239, 239);
         color: v-bind(color1);
-
     }
 
     @media screen and (max-width: 767px) {

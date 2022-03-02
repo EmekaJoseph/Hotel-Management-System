@@ -2,19 +2,16 @@
     <div>
         <div class="sidenav">
             <span class="brand">HMS</span>
-            <menuList/>
+            <menuList />
         </div>
-        <headComponent />
+        <adminHeadBar />
     </div>
 </template>
 
 <script setup>
-    import headComponent from './headComponent.vue'
-    import menuList from './menuListComponent.vue'
-
-    import { storeToRefs } from 'pinia'
-    import { useColorStore } from '@/stores/colorStore.js'
-    const { color1, color2, colorSideBar } = storeToRefs(useColorStore())
+    import { inject } from 'vue'
+    const cols = inject("customColors");
+    const { color1, color2, colorSideBar } = cols
 
 </script>
 
@@ -38,7 +35,6 @@
         /* Disable horizontal scroll */
         padding: 10px;
     }
-
 
     .sidenav .brand {
         /* display: flex;

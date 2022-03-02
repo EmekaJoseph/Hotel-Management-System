@@ -9,9 +9,8 @@
 </template>
 
 <script setup>
-    import headerComponent from '@/components/general//headerComponent.vue'
     import topPageCard from '@/components/general//topPageCardComponent.vue';
-    import footerComponent from '@/components/general//footerComponent.vue';
+
 </script>
 
 <style scoped>

@@ -4,10 +4,10 @@ export const useUserStore = defineStore({
     id: "user",
     state: () => ({
         admin: {
-            signedIn: (localStorage.getItem('hms-signIn') == null || localStorage.getItem('hms-signIn') == 0) ? false : true,
+            signedIn: (localStorage.getItem('hms-signIn') == null) ? false : true,
         },
         data: {
-            name: 'Leo'
+            name: '....'
         },
     }),
     getters: {
@@ -19,7 +19,7 @@ export const useUserStore = defineStore({
             this.admin.signedIn = true;
         },
         signOut() {
-            localStorage.setItem('hms-signIn', 0)
+            localStorage.removeItem('hms-signIn')
             this.admin.signedIn = false;
         },
 

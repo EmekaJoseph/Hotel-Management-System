@@ -7,7 +7,7 @@
                     <div class="col-md-12">
                         <div class="card imgPanel hoverZoom">
                             <span class="largeImage">
-                                <span class="nameText">Lorem's {{route.query.bk}}</span>
+                                <span class="nameText">Lorem's {{ route.query.bk }}</span>
                             </span>
                         </div>
                     </div>
@@ -35,22 +35,26 @@
                         <div class="card albumPanel shadow">
                             <div class="d-flex justify-content-between">
                                 <span class="fw-bold mb-1" style="font-size: 1.4rem;">Pictures</span>
-                                <div v-show="album.photos.length>1">
+                                <div v-show="album.photos.length > 1">
                                     <nav aria-label="Page navigation">
                                         <ul class="pagination pagination-sm">
                                             <li class="page-item">
                                                 <a @click.prevent="album.currentIndex--" class="page-link"
-                                                    :class="{'disabledBtn': limit.prev()}" href="#"
+                                                    :class="{ 'disabledBtn': limit.prev() }" href="#"
                                                     aria-label="Previous">
-                                                    <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-left"></i>
+                                                    </span>
                                                 </a>
                                             </li>
                                             <li>&nbsp;</li>
                                             <li>&nbsp;</li>
                                             <li class="page-item">
                                                 <a @click.prevent="album.currentIndex++" class="page-link"
-                                                    :class="{'disabledBtn': limit.next()}" href="#" aria-label="Next">
-                                                    <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+                                                    :class="{ 'disabledBtn': limit.next() }" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">
+                                                        <i class="bi bi-chevron-right"></i>
+                                                    </span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -59,10 +63,12 @@
                             </div>
 
                             <div class="card p-1">
-                                <img :src="'./src/assets/images/'+ album.currentPhoto.img" alt="">
+                                <img :src="'./src/assets/images/' + album.currentPhoto.img" alt />
                             </div>
-                            <small class="text-center m-2">{{album.currentIndex + 1}}/{{album.photos.length}} -
-                                <span class="fw-bold">{{album.currentPhoto.title}}</span></small>
+                            <small class="text-center m-2">
+                                {{ album.currentIndex + 1 }}/{{ album.photos.length }} -
+                                <span class="fw-bold">{{ album.currentPhoto.title }}</span>
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -70,11 +76,14 @@
                     <div class="col-md-12 mb-4">
                         <div class="card bookingPanel shadow">
                             <div class="mb-3">
-                                <span class="fw-bold" style="font-size: 1.4rem;">Booking</span> <br>
-                                <small class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                <span class="fw-bold" style="font-size: 1.4rem;">Booking</span>
+                                <br />
+                                <small class="text-muted">
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                                     Atque
                                     itaque
-                                    sequi.</small>
+                                    sequi.
+                                </small>
                             </div>
 
                             <div class="p-3" style="background-color: #f5f5f5;">
@@ -82,8 +91,7 @@
                                     <div class="row g-3">
                                         <div class="col-md-12">
                                             <fieldset class="border rounded-3 p-3">
-                                                <legend class="legend-text">
-                                                    Time:</legend>
+                                                <legend class="legend-text">Time:</legend>
                                                 <div class="row g-3">
                                                     <div class="col-md-6">
                                                         <label class="fw-bold small">Check in:</label>
@@ -101,55 +109,53 @@
 
                                         <div class="col-md-12">
                                             <fieldset class="border rounded-3 p-3">
-                                                <legend class="legend-text">
-                                                    Guests:</legend>
+                                                <legend class="legend-text">Guests:</legend>
                                                 <div class="row g-3">
                                                     <div class="col-md-4">
                                                         <label class="fw-bold small">Adults:</label>
                                                         <input v-model="bookingForm.numAdults" type="number"
-                                                            class="form-control" placeholder="0">
+                                                            class="form-control" placeholder="0" />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="fw-bold small">Children:</label>
                                                         <input v-model="bookingForm.numChildren" type="number"
-                                                            class="form-control" placeholder="0">
+                                                            class="form-control" placeholder="0" />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="fw-bold small">Total:</label>
                                                         <input v-model="bookingForm.numTotal" type="number"
-                                                            class="form-control bg-white" placeholder="0" disabled>
+                                                            class="form-control bg-white" placeholder="0" disabled />
                                                     </div>
                                                 </div>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-12">
                                             <fieldset class="border rounded-3 p-3">
-                                                <legend class="legend-text">
-                                                    Contact:</legend>
+                                                <legend class="legend-text">Contact:</legend>
                                                 <div class="row g-3">
                                                     <div class="col-md-12">
                                                         <label class="fw-bold small">Email:</label>
                                                         <input v-model="bookingForm.email" @keyup="valdateEmail"
                                                             type="text" class="form-control"
-                                                            :class="{'inputErr': err.email}">
-                                                        <small v-if="err.email" class="text-danger">invalid email
-                                                            format</small>
+                                                            :class="{ 'inputErr': err.email }" />
+                                                        <small v-if="err.email" class="text-danger">
+                                                            invalid email
+                                                            format
+                                                        </small>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="fw-bold small">Name:</label>
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="fw-bold small">Phone Number:</label>
-                                                        <input type="number" class="form-control">
+                                                        <input type="number" class="form-control" />
                                                     </div>
                                                 </div>
                                             </fieldset>
                                         </div>
                                         <div class="col-md-12">
-                                            <button @click.prevent class="customBtn btn btn-lg w-100">
-                                                Continue
-                                            </button>
+                                            <button @click.prevent class="customBtn btn btn-lg w-100">Continue</button>
                                         </div>
                                     </div>
                                 </form>
@@ -170,21 +176,20 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>-->
         </div>
         <footerComponent />
     </div>
 </template>
 
 <script setup>
-    import headerComponent from '@/components/general//headerComponent.vue'
-    import footerComponent from '@/components/general//footerComponent.vue';
-    
     import { inject, ref, onMounted, reactive, watch, computed } from 'vue'
-    import DatepickerVue from 'vue3-date-time-picker';
 
     import { useRoute, onBeforeRouteLeave } from 'vue-router'
     const route = useRoute()
+
+    const cols = inject("customColors");
+    const { color1, color2 } = cols
 
     onMounted(() => {
         // scroll to top
@@ -199,12 +204,6 @@
         )
         if (!answer) return false
     })
-
-    import { storeToRefs } from 'pinia'
-    import { useColorStore } from '@/stores/colorStore.js'
-    const { color1, color2 } = storeToRefs(useColorStore())
-
-
 
     // photo album
     const album = reactive({
@@ -290,7 +289,7 @@
     }
 
     .largeImage {
-        background: url("./src/assets/images/cccc.jpg");
+        background: url("@/assets/images/cccc.jpg");
         /* background-color: #ccc; */
         background-size: cover;
         background-position: center center;
@@ -304,7 +303,6 @@
         font-weight: bold;
         color: v-bind(color1);
     }
-
 
     .imgPanel {
         height: 370px;

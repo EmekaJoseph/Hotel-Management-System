@@ -40,7 +40,7 @@ const routes = [
     { path: '/admin/login', name: 'Admin', component: AdminLogin },
     { path: '/admin', redirect: { name: 'Admin' } },
     { path: '/admin/dashboard', name: 'Dashboard', component: () => import('../pages/admin/dashboard.vue') },
-    { path: '/admin/orders', name: 'Orders', component: () => import('../pages/admin/orders.vue') },
+    { path: '/admin/bookings-list', name: 'Bookings', component: () => import('../pages/admin/orders.vue') },
     { path: '/admin/rooms', name: 'Rooms', component: () => import('../pages/admin/rooms.vue') },
     { path: '/admin/messages', name: 'Messages', component: () => import('../pages/admin/messages.vue') },
 

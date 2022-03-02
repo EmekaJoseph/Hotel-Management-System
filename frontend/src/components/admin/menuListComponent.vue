@@ -4,17 +4,17 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
                     <router-link to="/admin/dashboard">
-                        <i class="bi bi-grid-fill"></i>&nbsp; Dashboard
+                        <i class="bi bi-layout-wtf"></i>&nbsp; Dashboard
                     </router-link>
                 </li>
                 <li class="list-group-item">
-                    <router-link to="/admin/orders">
-                        <i class="bi bi-sort-down-alt"></i>&nbsp; Orders
+                    <router-link to="/admin/bookings-list">
+                        <i class="bi bi-card-checklist"></i>&nbsp; Bookings
                     </router-link>
                 </li>
                 <li class="list-group-item">
                     <router-link to="/admin/rooms">
-                        <i class="bi bi-person-workspace"></i>&nbsp; Rooms
+                        <i class="bi bi-door-closed"></i>&nbsp; Rooms
                     </router-link>
                 </li>
                 <li class="list-group-item">
@@ -55,9 +55,9 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia'
-import { useColorStore } from '@/stores/colorStore.js'
-const { color1, color2, colorSideBar } = storeToRefs(useColorStore())
+import { inject, ref } from 'vue'
+const cols = inject("customColors");
+const { color1, color2, colorSideBar } = cols
 
 
 </script>

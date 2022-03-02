@@ -1,17 +1,13 @@
 <template>
     <div>
- <sideBarComponent />
- <div class="adminMain">
-     Orders
- </div>
+        <sideBarComponent />
+        <div class="adminMain">Bookings</div>
     </div>
 </template>
 
 <script setup>
-import sideBarComponent from '@/components/admin/sideBarComponent.vue'
 
 </script>
 
 <style scoped>
-
 </style>

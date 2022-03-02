@@ -47,10 +47,11 @@
 </template>
 
 <script setup>
-    import { reactive, ref } from 'vue'
-    import { storeToRefs } from 'pinia'
-    import { useColorStore } from '@/stores/colorStore.js'
-    const { color1, color2 } = storeToRefs(useColorStore())
+    import { reactive, ref, inject } from 'vue'
+
+    const cols = inject("customColors");
+    const { color1, color2 } = cols
+
 
     import { useUserStore } from '@/stores/userStore.js'
     const user = useUserStore()
