@@ -39,7 +39,7 @@
                     </form>
                 </div>
                 <div class="text-center">
-                    <router-link class="text-decoration-none" to="/">Go to main site</router-link>
+                    <router-link class="text-decoration-none" to="/">Main site</router-link>
                 </div>
             </div>
         </div>
