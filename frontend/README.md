@@ -1,11 +1,19 @@
-# Vue 3 + Vite
+# house34
 
-"# Hotel-Management-System" 
+## Project setup
+```
+npm install
+```
 
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-A hotel management system with vue js and codeigniter(php frameworks)
+### Compiles and minifies for production
+```
+npm run build
+```
 
-
-## Recommended IDE Setup
-
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

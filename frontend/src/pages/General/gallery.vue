@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="genaralBody">
         <headerComponent />
         <topPageCard>
             <h2 class="fw-bold text-center">Our Gallery</h2>
@@ -9,10 +9,9 @@
 </template>
 
 <script setup>
-    import topPageCard from '@/components/general//topPageCardComponent.vue';
+import topPageCard from '@/components/general//topPageCardComponent.vue';
 
 </script>
 
 <style scoped>
-
 </style>

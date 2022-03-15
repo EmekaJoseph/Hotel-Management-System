@@ -1,9 +1,18 @@
 <template>
     <div>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasAdmin" aria-labelledby="offcanvasAdminLabel">
+        <div
+            class="offcanvas offcanvas-start"
+            tabindex="-1"
+            id="offcanvasAdmin"
+            aria-labelledby="offcanvasAdminLabel"
+        >
             <div class="offcanvas-header">
                 <h5 id="offcanvasAdminLabel text-muted">HMS</h5>
-                <button type="button" class="btn btn-link text-white fs-1" data-bs-dismiss="offcanvas">
+                <button
+                    type="button"
+                    class="btn btn-link text-white fs-1"
+                    data-bs-dismiss="offcanvas"
+                >
                     <i class="bi bi-x"></i>
                 </button>
             </div>
@@ -23,45 +32,47 @@
 
 <script setup>
 
-    import { inject } from 'vue'
-    const cols = inject("customColors");
-    const { color1, color2, colorSideBar } = cols
+import { inject } from 'vue'
+import { useUserStore } from '@/stores/user-Store.js'
+import { useRouter } from 'vue-router'
+const cols = inject("customColors");
+const { color1, color2, colorSideBar } = cols
 
-    import { useUserStore } from '@/stores/userStore.js'
-    const user = useUserStore()
 
-    import { useRouter } from 'vue-router'
-    const router = useRouter()
+const user = useUserStore()
 
-    function signOut() {
-        user.signOut()
-        router.replace({ name: 'Admin' })
-    }
+
+const router = useRouter()
+
+function signOut() {
+    user.signOut()
+    router.replace({ name: 'Admin' })
+}
 
 
 
 </script>
 
 <style scoped>
-    .offcanvas {
-        background-color: v-bind(colorSideBar);
-        /* color: #3b032f; */
-        width: 250px;
-        color: #fff;
-    }
+.offcanvas {
+    background-color: v-bind(colorSideBar);
+    /* color: #3b032f; */
+    width: 250px;
+    color: #fff;
+}
 
-    .logOutBtn {
-        /* margin: 45px; */
-        font-weight: bold;
-        font-size: 16px;
-        text-decoration: none;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-    }
+.logOutBtn {
+    /* margin: 45px; */
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
 
-    .logOutSection {
-        background-color: #160111;
-        padding: 20px;
-    }
+.logOutSection {
+    background-color: #160111;
+    padding: 20px;
+}
 </style>

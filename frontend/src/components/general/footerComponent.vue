@@ -31,21 +31,21 @@
 
 
 <style scoped>
-  .footer {
-    /* background: rgb(245, 243, 243); */
-    width: 100%;
-    padding: 45px;
-    /* font-weight: bold; */
-    font-size: 15px;
-    background-color: #eee;
+.footer {
+  /* background: rgb(245, 243, 243); */
+  width: 100%;
+  padding: 45px;
+  /* font-weight: bold; */
+  font-size: 15px;
+  background-color: #eee;
 
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;
-  }
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
 
-  .text-mute {
-    color: #97a84c;
-  }
+.text-mute {
+  color: #97a84c;
+}
 </style>

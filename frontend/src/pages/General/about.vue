@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="genaralBody">
         <headerComponent />
         <topPageCard>
             <h2 class="fw-bold text-center">About Us</h2>

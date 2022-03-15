@@ -15,7 +15,7 @@ export const useUserStore = defineStore({
     },
     actions: {
         signIn() {
-            localStorage.setItem('hms-signIn', 1)
+            localStorage.setItem('hms-signIn', "1")
             this.admin.signedIn = true;
         },
         signOut() {

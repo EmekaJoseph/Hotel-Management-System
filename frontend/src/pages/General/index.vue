@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="genaralBody">
         <headerComponent />
         <div class="largeFront">
             <div class="container py-5">
@@ -28,10 +28,9 @@
             <h1 class="text-center my-5 fw-bold">- CHECK OUT LOREMS -</h1>
             <div class="col-md-12">
                 <div class="row justify-content-center gy-4">
-                    <div v-for="i in images" :key="i" class="col-md-4">
+                    <div v-for="(i, id) in images" :key="id" class="col-md-4">
                         <div class="card cardHolder shadow p-2 hoverZoom">
-                            <img :src="'../src/assets/images/' + i.image" style="border-radius: 10px;"
-                                class="card-img-top" alt="..." />
+                            <img :src="getImage(i.image)" style="border-radius: 10px;" class="card-img-top" alt="..." />
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-2">
                                     <div class="fw-bold">ROOM - {{ i.id }}</div>
@@ -42,8 +41,10 @@
                                     Some quick example text to build on the card title and make
                                     up the bulk of the card's content.
                                 </p>
-                                <button @click="goToBookingPage('Room-' + i.id)" class="btn actionBtn2">Book
-                                    now</button>
+                                <button @click="goToBookingPage('Room-' + i.id)" class="btn actionBtn2">
+                                    Book
+                                    now
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -57,7 +58,7 @@
 
 <script setup>
     import { ref, onMounted, inject } from "vue";
-
+    import jsonData from '@/stores/json/data.json'
     import apiCall from '@/stores/apiStore.js'
 
     import { useRouter, useRoute } from 'vue-router'
@@ -67,11 +68,16 @@
     const cols = inject("customColors");
     const { color1, color2 } = cols
 
-    import jsonData from '@/stores/json/data.json'
+
     const images = ref(jsonData.images)
 
+    function getImage(img) {
+        return require('@/assets/images/' + img)
+
+    }
+
     onMounted(() => {
-        console.log(images.value)
+        // console.log(images.value)
         // testApi()
     })
 

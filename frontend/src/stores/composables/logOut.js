@@ -12,5 +12,4 @@
 //     }
 
 //     return { logOut }
-
 // }
