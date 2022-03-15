@@ -11,8 +11,9 @@ button:focus,
 
   body {
     margin: 0;
-    /* background:#eeeefd!important; */
-    /* height: 100%!important; */
+    background:#eeeefd!important;
+    position: relative;
+    min-height: 100vh;
   }
 
   html *{
@@ -35,6 +36,7 @@ button:focus,
   }
 }
 
+/* general margin */
 .genaralBody{
   margin-bottom: 150px;
 }

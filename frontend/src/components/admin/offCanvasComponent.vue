@@ -33,7 +33,7 @@
 <script setup>
 
 import { inject } from 'vue'
-import { useUserStore } from '@/stores/user-Store.js'
+import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
 const cols = inject("customColors");
 const { color1, color2, colorSideBar } = cols

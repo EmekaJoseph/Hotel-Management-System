@@ -35,7 +35,6 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/stores/user-Store.js"
   ],
   "exclude": [
     "node_modules",

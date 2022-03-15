@@ -7,7 +7,7 @@ import Booking from '../pages/general/booking.vue'
 // admin
 import AdminLogin from '../pages/admin/login.vue'
 // store
-import { useUserStore } from '@/stores/user-Store.js'
+import { useUserStore } from '@/stores/user'
 
 
 const routes: Array<RouteRecordRaw> = [

@@ -4,7 +4,6 @@
         <div class="adminMain">
             <div class="container">
                 <div class="col-md-12">
-
                     <!-- <div class="row">
                         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
                             <div class="mb-4 card">
@@ -93,7 +92,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>-->
 
                     <div class="row justify-content-center gy-3">
                         <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
@@ -103,11 +102,10 @@
                                         <!-- <img src="@/assets/images/dashboard/order.png" style="width:100%" alt=""> -->
                                         <i class="bi bi-card-checklist"></i>
                                     </div>
-                                    <div class="">
+                                    <div class>
                                         <div class style="font-size: 2.6rem;">12</div>
                                         <span class="badge rounded-pill text-dark">CHECK-IN</span>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -119,7 +117,7 @@
                                         <!-- <img src="@/assets/images/dashboard/man.png" style="width:100%" alt=""> -->
                                         <i class="bi bi-window-x"></i>
                                     </div>
-                                    <div class="">
+                                    <div class>
                                         <div style="font-size: 2.6rem;">4</div>
                                         <span class="badge rounded-pill text-dark">CHECK-OUT</span>
                                     </div>
@@ -134,8 +132,8 @@
                                         <!-- <img src="@/assets/images/dashboard/bedroom.png" style="width:100%" alt=""> -->
                                         <i class="bi bi-door-closed"></i>
                                     </div>
-                                    <div class="">
-                                        <div class="" style="font-size: 2.6rem;">16</div>
+                                    <div class>
+                                        <div class style="font-size: 2.6rem;">16</div>
                                         <span class="badge rounded-pill text-dark">ROOMS</span>
                                     </div>
                                 </div>
@@ -149,7 +147,7 @@
                                         <!-- <img src="@/assets/images/dashboard/bedroom.png" style="width:100%" alt=""> -->
                                         <i class="bi bi-activity"></i>
                                     </div>
-                                    <div class="">
+                                    <div class>
                                         <div style="font-size: 2.6rem;">1</div>
                                         <span class="badge rounded-pill text-dark">OPTAVAL</span>
                                     </div>
@@ -164,41 +162,42 @@
 </template>
 
 <script setup>
-    import { onMounted, inject } from 'vue'
-    const cols = inject("customColors");
-    const { color1, color2, colorSideBar } = cols
+import { onMounted, inject } from 'vue'
+const cols = inject("customColors");
+const { color1, color2, colorSideBar } = cols
 
 
 
 
 
-    onMounted(() => {
+onMounted(() => {
 
-    })
+})
 </script>
 
 <style scoped>
-    .cusCard {
-        padding: 20px;
-        border-radius: 10px;
-        border-right: 4px solid v-bind(color2);
-        box-shadow: 0 0.125rem 0.25rem rgba(197, 195, 195, 0.75);
-    }
+.cusCard {
+    padding: 20px;
+    border-radius: 10px;
+    border-right: 4px solid v-bind(color2);
+    box-shadow: 0 0.125rem 0.25rem rgba(197, 195, 195, 0.75);
+    background-color: #fff;
+}
 
-    /* .cusCard:hover {
+/* .cusCard:hover {
         transform: scale(1.02);
     } */
 
-    .largeLogo {
-        /* color: v-bind(color1); */
-        color: #777;
-        font-size: 2rem;
-        /* border-right: 1px solid #eee;
+.largeLogo {
+    /* color: v-bind(color1); */
+    color: #777;
+    font-size: 2rem;
+    /* border-right: 1px solid #eee;
         padding-right: 20%; */
-    }
+}
 
-    .rounded-pill {
-        /* background-color: v-bind(color2); */
-        background-color: #eee;
-    }
+.rounded-pill {
+    /* background-color: v-bind(color2); */
+    background-color: #eee;
+}
 </style>

@@ -345,7 +345,7 @@ function valdateEmail() {
 .imgPanel {
     height: 370px;
     padding: 5px;
-    border: 1px dashed v-bind(color1);
+    border: thick double v-bind(color2);
 }
 
 .descPanel {

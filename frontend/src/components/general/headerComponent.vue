@@ -1,7 +1,7 @@
 <script setup>
 import offCanvasComponentVue from '@/components/general/offCanvasComponent.vue';
 import signInModalComponent from '@/components/general/signInPopUpComponent.vue';
-import { useUserStore } from '@/stores/user-Store.js'
+import { useUserStore } from '@/stores/user'
 
 import { onMounted, ref, inject } from 'vue'
 

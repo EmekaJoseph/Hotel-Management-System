@@ -7,23 +7,16 @@ provide("customColors", storeToRefs(cols));
 </script>
 
 <template>
-  <div class="mainBody">
-    <div class="bodySection">
-      <router-view v-slot="{ Component }">
-        <transition name="fad" mode="out-in">
-          <component :is="Component"></component>
-        </transition>
-      </router-view>
-    </div>
+  <div class="bodySection">
+    <router-view v-slot="{ Component }">
+      <transition name="fad" mode="out-in">
+        <component :is="Component"></component>
+      </transition>
+    </router-view>
   </div>
 </template>
 
 <style>
-.mainBody {
-  position: relative;
-  min-height: 100vh;
-}
-
 .bodySection {
   padding-bottom: 0.001rem;
 }

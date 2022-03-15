@@ -1,10 +1,10 @@
 <template>
     <div class="container">
         <div class="thForm">
-            <div class="col-12 col-lg-4 p-2">
-                <div class="text-center h3 fw-bold mb-4">House34</div>
-                <div class="card p-3 shadow">
-                    <h5 class="text-center mb-3">admin</h5>
+            <div class="col-12 col-lg-4">
+                <div class="card p-4 shadow-sm">
+                    <span class="text-center fw-bold h2 mb-0">House34</span>
+                    <small class="text-center fw-bold text-muted mb-3">Admin Login</small>
                     <form>
                         <div class="row gy-3">
                             <span class="text-danger small text-center" v-html="form.errMsg"></span>
@@ -52,7 +52,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="text-center">
+                <div class="text-center mt-3">
                     <router-link class="text-decoration-none" to="/">Main site</router-link>
                 </div>
             </div>
@@ -63,7 +63,7 @@
 <script lang="ts" setup>
 import { reactive, ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
-import { useUserStore } from '@/stores/user-Store.js'
+import { useUserStore } from '@/stores/user'
 
 const cols: any = inject("customColors");
 const { color1, color2 } = cols
