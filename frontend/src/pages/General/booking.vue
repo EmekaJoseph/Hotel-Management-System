@@ -4,7 +4,7 @@
         <div class="container bookingPage">
             <div class="row gy-4">
                 <div class="col-12 col-lg-6">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <div class="card imgPanel">
                             <span class="largeImage">
                                 <span class="nameText">Lorem's {{ route.query.bk }}</span>
@@ -12,7 +12,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <div class="card descPanel">
                             <span class="fw-bold mb-3" style="font-size: 1.4rem;">Description</span>
                             <p>
@@ -378,17 +378,6 @@ function valdateEmail() {
 .disabledBtn {
     pointer-events: none;
     background-color: #ccc !important;
-}
-
-.customBtn {
-    background-color: v-bind(color1);
-    /* width: 200px; */
-    color: #fff;
-}
-
-.customBtn:hover {
-    color: v-bind(color2);
-    background-color: #5a0948;
 }
 
 .inputErr {

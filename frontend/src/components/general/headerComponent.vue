@@ -6,7 +6,7 @@ import { useUserStore } from '@/stores/user'
 import { onMounted, ref, inject } from 'vue'
 
 const cols = inject("customColors");
-const { color1, color2 } = cols
+const { color1, color2, colorActive, color3 } = cols
 
 
 const user = useUserStore()
@@ -22,9 +22,11 @@ onMounted(() => {
         <header id="header" class="fixed-top d-flex align-items-center">
             <div class="container d-flex align-items-center justify-content-between">
                 <div class="logo">
-                    <h4 class="fw-bold">
-                        <router-link class="text-decoration-none text-white" to="/">House34</router-link>
-                    </h4>
+                    <span class="fw-bold">
+                        <router-link class="text-decoration-none text-white" to="/">
+                            <img src="@/assets/house34_logo2.png" width="90" alt />
+                        </router-link>
+                    </span>
                 </div>
                 <div v-for="i in 10" :key="i"></div>
                 <div>
@@ -136,7 +138,7 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px 10px 30px;
+    padding: 5px 20px 5px 30px;
     font-size: 15px;
     font-weight: lighter;
     color: #fff;
@@ -153,28 +155,16 @@ onMounted(() => {
 
 .navbar .active,
 .navbar .active:focus {
-    color: v-bind(color2);
-    background-color: #4d033b;
-    border-radius: 20px;
+    /* color: v-bind(colorActive); */
+    background-color: v-bind(colorActive);
+    /* border-radius: 20px; */
+    font-weight: bold;
+    /* border-top: 1px solid v-bind(color3); */
 }
 
 .navbar a:hover {
-    color: v-bind(color2);
+    /* color: v-bind(color2); */
     font-weight: bold;
-}
-
-.navbar .getstarted {
-    background: #3498db;
-    padding: 8px 25px;
-    margin-left: 5px;
-    border-radius: 50px;
-    color: #fff;
-    text-decoration: none;
-}
-
-.navbar .getstarted:hover {
-    color: #fff;
-    background: #4aa3df;
 }
 
 #accountDrop {

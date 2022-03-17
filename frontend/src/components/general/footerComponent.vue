@@ -37,7 +37,7 @@
   padding: 45px;
   /* font-weight: bold; */
   font-size: 15px;
-  background-color: #eee;
+  background-color: rgb(221, 219, 219);
 
   position: absolute;
   bottom: 0;

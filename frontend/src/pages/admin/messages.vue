@@ -1,8 +1,5 @@
 <template>
-    <div>
-        <sideBarComponent />
-        <div class="adminMain">Notifications</div>
-    </div>
+    <div>Notifications</div>
 </template>
 
 <script setup>

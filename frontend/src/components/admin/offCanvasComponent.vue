@@ -7,7 +7,9 @@
             aria-labelledby="offcanvasAdminLabel"
         >
             <div class="offcanvas-header">
-                <h5 id="offcanvasAdminLabel text-muted">HMS</h5>
+                <span id="offcanvasAdminLabel text-muted">
+                    <img src="@/assets/house34_logo2.png" width="90" alt />
+                </span>
                 <button
                     type="button"
                     class="btn btn-link text-white fs-1"
@@ -36,7 +38,7 @@ import { inject } from 'vue'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
 const cols = inject("customColors");
-const { color1, color2, colorSideBar } = cols
+const { color1, color2, colorThick } = cols
 
 
 const user = useUserStore()
@@ -55,7 +57,7 @@ function signOut() {
 
 <style scoped>
 .offcanvas {
-    background-color: v-bind(colorSideBar);
+    background-color: v-bind(color1);
     /* color: #3b032f; */
     width: 250px;
     color: #fff;
@@ -72,7 +74,7 @@ function signOut() {
 }
 
 .logOutSection {
-    background-color: #160111;
+    background-color: v-bind(colorThick);
     padding: 20px;
 }
 </style>

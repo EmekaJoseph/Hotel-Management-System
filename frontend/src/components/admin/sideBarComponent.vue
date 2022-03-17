@@ -1,7 +1,9 @@
 <template>
     <div>
         <div class="sidenav">
-            <span class="brand">House34</span>
+            <span class="brand">
+                <img src="@/assets/house34_logo2.png" width="95" alt />
+            </span>
             <menuList />
         </div>
         <adminHeadBar />
@@ -11,7 +13,7 @@
 <script setup>
 import { inject } from 'vue'
 const cols = inject("customColors");
-const { color1, color2, colorSideBar } = cols
+const { colorSideBar, color1 } = cols
 
 </script>
 
@@ -29,7 +31,7 @@ const { color1, color2, colorSideBar } = cols
     top: 0;
     /* Stay at the top */
     left: 0;
-    background-color: v-bind(colorSideBar);
+    background-color: v-bind(color1);
 
     overflow-x: hidden;
     /* Disable horizontal scroll */

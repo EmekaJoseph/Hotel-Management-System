@@ -3,11 +3,20 @@
         <div class="thForm">
             <div class="col-12 col-lg-4">
                 <div class="card p-4 shadow-sm">
-                    <span class="text-center fw-bold h2 mb-0">House34</span>
-                    <small class="text-center fw-bold text-muted mb-3">Admin Login</small>
+                    <span class="text-center fw-bold mb-2">
+                        <img src="@/assets/house34_logo1.png" width="130" />
+                    </span>
+                    <small class="text-center fw-bold text-muted mb-2">Admin</small>
                     <form>
                         <div class="row gy-3">
-                            <span class="text-danger small text-center" v-html="form.errMsg"></span>
+                            <div class="col-md-12">
+                                <div
+                                    class="alert alert-danger small my-1 p-2 border-0"
+                                    v-if="form.errMsg"
+                                    v-html="form.errMsg"
+                                ></div>
+                            </div>
+
                             <div class="col-md-12">
                                 <div class="form-floating">
                                     <input
@@ -36,7 +45,7 @@
                                     <label for="floatpassw">password:</label>
                                 </div>
                             </div>
-                            <div class="col-md-12 mt-5">
+                            <div class="col-md-12 mt-4">
                                 <button
                                     type="submit"
                                     @click.prevent="loginUser"
@@ -89,11 +98,11 @@ const form: i_Form = reactive({
 
 function loginUser() {
     if (form.username.length == 0) {
-        form.errMsg = 'Enter a name'
+        form.errMsg = '<i class="bi bi-exclamation-circle"></i>&nbsp;Enter a name'
         return false
     }
     else if (form.password.length == 0) {
-        form.errMsg = 'Enter a password biko'
+        form.errMsg = '<i class="bi bi-exclamation-circle"></i>&nbsp;Enter a password biko'
         return false
     }
     else {
@@ -116,15 +125,9 @@ function loginUser() {
     align-items: center;
 }
 
-.customBtn {
-    background-color: v-bind(color1);
-    color: #fff;
-}
-
-.customBtn:hover {
-    color: v-bind(color2);
-    background-color: #5a0948;
-}
+/* .card {
+    background-color: transparent;
+} */
 
 .form-control {
     border: none;

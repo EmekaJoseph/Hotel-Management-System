@@ -36,13 +36,34 @@ const routes: Array<RouteRecordRaw> = [
   },
 
 
-  // Admin ############################### 
+
+  // Admin ######################################
+
   { path: '/admin/login', name: 'Admin', component: AdminLogin },
   { path: '/admin', redirect: { name: 'Admin' } },
-  { path: '/admin/dashboard', name: 'Dashboard', component: () => import('../pages/admin/dashboard.vue') },
-  { path: '/admin/bookings-list', name: 'Bookings', component: () => import('../pages/admin/orders.vue') },
-  { path: '/admin/rooms', name: 'Rooms', component: () => import('../pages/admin/rooms.vue') },
-  { path: '/admin/messages', name: 'Messages', component: () => import('../pages/admin/messages.vue') },
+
+  {
+    path: '/admin',
+    name: 'Admin-layout',
+    component: () => import('../pages/admin/admin-layout.vue'),
+    children: [
+      { path: 'dashboard', name: 'Dashboard', component: () => import('../pages/admin/dashboard.vue') },
+      { path: 'bookings-list', name: 'Bookings', component: () => import('../pages/admin/orders.vue') },
+      { path: 'rooms', name: 'Rooms', component: () => import('../pages/admin/rooms.vue') },
+      { path: 'messages', name: 'Messages', component: () => import('../pages/admin/messages.vue') },
+    ],
+  },
+
+
+
+
+  // Admin ############################### 
+  // { path: '/admin/login', name: 'Admin', component: AdminLogin },
+  // { path: '/admin', redirect: { name: 'Admin' } },
+  // { path: '/admin/dashboard', name: 'Dashboard', component: () => import('../pages/admin/dashboard.vue') },
+  // { path: '/admin/bookings-list', name: 'Bookings', component: () => import('../pages/admin/orders.vue') },
+  // { path: '/admin/rooms', name: 'Rooms', component: () => import('../pages/admin/rooms.vue') },
+  // { path: '/admin/messages', name: 'Messages', component: () => import('../pages/admin/messages.vue') },
 
   {
     path: '/:pathMatch(.*)*',

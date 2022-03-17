@@ -13,7 +13,8 @@
                             explicabo
                             quod magni nobis similique quibusdam?
                         </p>
-                        <a href="#showCasePane" @click="showToast" class="btn actionBtn">Book now</a>
+                        <a style="width: 200px;" href="#showCasePane" @click="showToast" class="btn customBtn">Book
+                            now</a>
                     </div>
                     <!-- <div class="col-md-4">
                         <div class="float-end">
@@ -66,7 +67,7 @@
     const route = useRoute()
 
     const cols = inject("customColors");
-    const { color1, color2 } = cols
+    const { color1, color2, color3, color4 } = cols
 
 
     const images = ref(jsonData.images)
@@ -119,18 +120,7 @@
         padding: 15px;
         /* border-bottom-left-radius: 50%; */
         color: #fff;
-        border-bottom: 2px solid v-bind(color2);
-    }
-
-    .actionBtn {
-        background-color: v-bind(color1);
-        width: 150px;
-        color: #fff;
-    }
-
-    .actionBtn:hover {
-        color: v-bind(color2);
-        background-color: #5a0948;
+        /* border-bottom: 2px solid v-bind(color2); */
     }
 
     .cardHolder {
@@ -141,13 +131,12 @@
     .actionBtn2 {
         /* background-color: v-bind(color1); */
         width: 150px;
-        border: 1px solid v-bind(color1);
-        color: v-bind(color1);
+        border: 1px solid v-bind(color2);
     }
 
     .actionBtn2:hover {
-        color: v-bind(color2);
-        background-color: #5a0948;
+        color: #fff;
+        background-color: v-bind(color2);
     }
 
     .premium {

@@ -2,23 +2,23 @@
     <div>
         <div class="menuSection">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                    <router-link to="/admin/dashboard">
+                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                    <router-link :to="{ name: 'Dashboard' }">
                         <i class="bi bi-layout-wtf"></i>&nbsp; Dashboard
                     </router-link>
                 </li>
-                <li class="list-group-item">
-                    <router-link to="/admin/bookings-list">
+                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                    <router-link :to="{ name: 'Bookings' }">
                         <i class="bi bi-card-checklist"></i>&nbsp; Bookings
                     </router-link>
                 </li>
-                <li class="list-group-item">
-                    <router-link to="/admin/rooms">
+                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                    <router-link :to="{ name: 'Rooms' }">
                         <i class="bi bi-door-closed"></i>&nbsp; Rooms
                     </router-link>
                 </li>
-                <li class="list-group-item">
-                    <router-link to="/admin/messages">
+                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                    <router-link :to="{ name: 'Messages' }">
                         <i class="bi bi-app-indicator"></i>&nbsp; Messages
                     </router-link>
                 </li>
@@ -57,7 +57,7 @@
 <script setup>
 import { inject, ref } from 'vue'
 const cols = inject("customColors");
-const { color1, color2, colorSideBar } = cols
+const { color1, color2, colorActive, color3 } = cols
 
 
 </script>
@@ -94,14 +94,18 @@ const { color1, color2, colorSideBar } = cols
 }
 
 a:hover {
-    color: v-bind(color2);
+    /* color: v-bind(color2); */
+    font-weight: bold;
+    transform: scale(1.02);
 }
 
 .list-group-item .active {
-    color: v-bind(color2);
+    color: #fff;
     font-weight: bold;
-    background-color: v-bind(color1);
-    border-radius: 5px;
+    background-color: v-bind(colorActive);
+    /* border-radius: 5px; */
+    border-right: 2px solid v-bind(color3);
+    margin-left: 10px;
 }
 
 .myaccordion {

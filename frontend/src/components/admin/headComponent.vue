@@ -16,15 +16,12 @@
                 </nav>
             </div>
         </nav>
-        <offcanvas />
     </div>
 </template>
 
 <script setup>
 
 import { onMounted, inject } from 'vue'
-
-import offcanvas from '@/components/admin/offCanvasComponent.vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 const router = useRouter()

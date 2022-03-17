@@ -1,8 +1,5 @@
 <template>
-    <div>
-        <sideBarComponent />
-        <div class="adminMain">Rooms</div>
-    </div>
+    <div>Rooms</div>
 </template>
 
 <script setup>

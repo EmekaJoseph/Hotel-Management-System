@@ -40,6 +40,17 @@ button:focus,
 .genaralBody{
   margin-bottom: 150px;
 }
+
+.customBtn{
+  background-color:#800467;
+  color: #fff;
+}
+
+.customBtn:hover{
+  background-color: #80146A;
+  color: #fff;
+  font-weight: bolder;
+}
   
   
 
