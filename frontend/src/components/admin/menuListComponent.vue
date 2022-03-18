@@ -2,22 +2,22 @@
     <div>
         <div class="menuSection">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                <li class="list-group-item" :data-bs-dismiss="isOffCanvas()">
                     <router-link :to="{ name: 'Dashboard' }">
                         <i class="bi bi-layout-wtf"></i>&nbsp; Dashboard
                     </router-link>
                 </li>
-                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                <li class="list-group-item" :data-bs-dismiss="isOffCanvas()">
                     <router-link :to="{ name: 'Bookings' }">
                         <i class="bi bi-card-checklist"></i>&nbsp; Bookings
                     </router-link>
                 </li>
-                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                <li class="list-group-item" :data-bs-dismiss="isOffCanvas()">
                     <router-link :to="{ name: 'Rooms' }">
                         <i class="bi bi-door-closed"></i>&nbsp; Rooms
                     </router-link>
                 </li>
-                <li class="list-group-item" data-bs-dismiss="offcanvas">
+                <li class="list-group-item" :data-bs-dismiss="isOffCanvas()">
                     <router-link :to="{ name: 'Messages' }">
                         <i class="bi bi-app-indicator"></i>&nbsp; Messages
                     </router-link>
@@ -55,9 +55,13 @@
 </template>
 
 <script setup>
-import { inject, ref } from 'vue'
+import { inject } from 'vue'
 const cols = inject("customColors");
 const { color1, color2, colorActive, color3 } = cols
+
+const isOffCanvas = () => {
+    return (window.innerWidth <= 767) ? 'offcanvas' : ''
+}
 
 
 </script>

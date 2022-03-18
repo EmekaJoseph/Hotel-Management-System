@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div>
         <div class="thForm">
-            <div class="col-12 col-lg-4">
+            <div class="col-10 col-lg-3">
                 <div class="card p-4 shadow-sm">
                     <span class="text-center fw-bold mb-2">
                         <img src="@/assets/house34_logo1.png" width="130" />
@@ -62,7 +62,7 @@
                     </form>
                 </div>
                 <div class="text-center mt-3">
-                    <router-link class="text-decoration-none" to="/">Main site</router-link>
+                    <router-link class="text-decoration-none text-warning" to="/">Main site</router-link>
                 </div>
             </div>
         </div>
@@ -123,6 +123,7 @@ function loginUser() {
     justify-content: center;
     -ms-flex-align: center;
     align-items: center;
+    background-color: v-bind(color1);
 }
 
 /* .card {
