@@ -104,7 +104,7 @@ a:hover {
 }
 
 .list-group-item .active {
-    color: #fff;
+    color: v-bind(color3);
     font-weight: bold;
     background-color: v-bind(colorActive);
     /* border-radius: 5px; */

@@ -1,0 +1,30 @@
+##############################  FontAwesome ########################
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+library.add(faUserSecret)
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+You don't really have to this unless you need those for globally,
+if you think you will need to use FontAwesome in multiple components, then just keep
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+then inside the componenet where you want to use,
+
+<script lang="ts">
+// this is must have
+import { library } from '@fortawesome/fontawesome-svg-core';
+// import { name of your icon in camelCase } from "@fortawesome/free-solid-svg-icons";
+// For example, I want to use fa-enveloper-open-text, then it's faEnvelopeOpenText
+import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons";
+// Then add it to library
+library.add(faEnvelopeOpenText)
+</script>
+
+// Finally I can use envelope-open-text like this inside template
+<font-awesome-icon :icon="['fas', 'envelope-open-text']" />
+
+##############################  FontAwesome ########################
+
+

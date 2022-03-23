@@ -12,8 +12,8 @@
                             <div class="col-md-12">
                                 <div
                                     class="alert alert-danger small my-1 p-2 border-0"
-                                    v-if="form.errMsg"
-                                    v-html="form.errMsg"
+                                    v-if="formError.msg"
+                                    v-html="formError.msg"
                                 ></div>
                             </div>
 
@@ -73,11 +73,13 @@
 import { reactive, ref, inject } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { LoginFormInterface } from '@/types'
 
 const cols: any = inject("customColors");
 const { color1, color2 } = cols
 const user = useUserStore()
-const router = useRouter()
+const router = useRouter();
+
 
 const pw = reactive({
     type: 'password',
@@ -85,29 +87,40 @@ const pw = reactive({
 })
 
 // const errMsg = ref('')
-interface i_Form {
-    username: string,
-    password: string,
-    errMsg: string
-}
-const form: i_Form = reactive({
+
+const initialFormState: LoginFormInterface = {
     username: '',
     password: '',
-    errMsg: ''
-})
+    err: {
+        msg: '',
+        username: false,
+        password: false,
+    },
+}
+
+
+const form = reactive({ ...initialFormState });
+const formError = reactive({ ...initialFormState.err });
+
+function resetForm() {
+    Object.assign(form, initialFormState);
+}
+function resetFormError() {
+    Object.assign(formError, initialFormState.err);
+}
 
 function loginUser() {
     if (form.username.length == 0) {
-        form.errMsg = '<i class="bi bi-exclamation-circle"></i>&nbsp;Enter a name'
+        formError.msg = '<i class="bi bi-exclamation-circle"></i>&nbsp;Enter a name'
         return false
     }
     else if (form.password.length == 0) {
-        form.errMsg = '<i class="bi bi-exclamation-circle"></i>&nbsp;Enter a password biko'
+        formError.msg = '<i class="bi bi-exclamation-circle"></i>&nbsp;Enter a password biko'
         return false
     }
     else {
         router.replace({ name: 'Dashboard' })
-        form.errMsg = ''
+        formError.msg = ''
         user.signIn()
     }
 }
