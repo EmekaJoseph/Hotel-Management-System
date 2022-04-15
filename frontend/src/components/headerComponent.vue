@@ -1,6 +1,6 @@
 <script setup>
-import offCanvasComponentVue from '@/components/general/offCanvasComponent.vue';
-import signInModalComponent from '@/components/general/signInPopUpComponent.vue';
+import offCanvasComponentVue from '@/components/offCanvasComponent.vue';
+import signInModalComponent from '@/components/signInPopUpComponent.vue';
 import { useUserStore } from '@/stores/user'
 
 import { onMounted, ref, inject } from 'vue'
@@ -59,14 +59,8 @@ onMounted(() => {
                 </li>-->
 
                 <span class="dropdown d-none d-md-block">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="accountDrop"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
+                    <a class="nav-link dropdown-toggle" href="#" id="accountDrop" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         Account
                         <i class="bi bi-chevron-down"></i>
                     </a>
@@ -87,12 +81,8 @@ onMounted(() => {
                     </ul>
                 </span>
                 <nav class="d-md-none navbar">
-                    <h3
-                        class="fw-bold"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasGeneral"
-                        aria-controls="offcanvasGeneral"
-                    >
+                    <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasGeneral"
+                        aria-controls="offcanvasGeneral">
                         <i class="bi bi-list"></i>
                     </h3>
                 </nav>

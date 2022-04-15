@@ -6,8 +6,12 @@
         </topPageCard>
         <section class="container mt-5">
             <h2 class="fw-bold">LOREM?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto harum dolor omnis quisquam unde amet a vel eum, dicta obcaecati illo, aperiam corporis culpa voluptatum laboriosam libero architecto, similique aliquam.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto harum dolor omnis quisquam unde amet a vel eum, dicta obcaecati illo, aperiam corporis culpa voluptatum laboriosam libero architecto, similique aliquam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto harum dolor omnis quisquam unde amet a
+                vel eum, dicta obcaecati illo, aperiam corporis culpa voluptatum laboriosam libero architecto, similique
+                aliquam.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto harum dolor omnis quisquam unde amet a
+                vel eum, dicta obcaecati illo, aperiam corporis culpa voluptatum laboriosam libero architecto, similique
+                aliquam.</p>
 
             <div class="col-md-12 p-4" style="background-color: #f5f5f5; border-radius: 20px;">
                 <div class="row gy-5">
@@ -25,13 +29,8 @@
                             <h5 class="fw-bold">Join our Newsletter</h5>
                             <p>Subscribe to our newsletter to get our news & deals delivered to you.</p>
                             <div class="input-group mb-3">
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="email address"
-                                    aria-label="email address"
-                                    aria-describedby="button-addon2"
-                                />
+                                <input type="text" class="form-control" placeholder="email address"
+                                    aria-label="email address" aria-describedby="button-addon2" />
                                 <button class="btn btn-warning" type="button" id="button-addon2">
                                     Send&nbsp;
                                     <i class="bi bi-arrow-right"></i>
@@ -74,7 +73,7 @@
 </template>
 
 <script setup>
-import topPageCard from '@/components/general//topPageCardComponent.vue';
+import topPageCard from '@/components/topPageCardComponent.vue';
 
 </script>
 

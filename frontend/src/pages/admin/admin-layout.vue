@@ -8,5 +8,6 @@
     </div>
 </template>
 <script setup>
-import offcanvas from '@/components/admin/offCanvasComponent.vue'
+import offcanvas from './adminComponents/offCanvasComponent.vue'
+import sideBarComponent from './adminComponents/sideBarComponent.vue'
 </script>

@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import topPageCard from '@/components/general//topPageCardComponent.vue';
+import topPageCard from '@/components/topPageCardComponent.vue';
 
 </script>
 

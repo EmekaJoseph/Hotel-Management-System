@@ -3,29 +3,29 @@ select:focus,
 textarea:focus,
 button:focus,
 .page-link:focus {
-    outline: none !important;
-    box-shadow: none !important;
-    /* background-color: none; */
+  outline: none !important;
+  box-shadow: none !important;
+  /* background-color: none; */
 }
 
 
-  body {
-    margin: 0;
-    background:#F8F8FF!important;
-    position: relative;
-    min-height: 100vh;
-  }
+body {
+  margin: 0;
+  background: #F8F8FF !important;
+  position: relative;
+  min-height: 100vh;
+}
 
-  html *{
-    font-family: 'Rubik', sans-serif;
-  }
+html * {
+  font-family: 'Rubik', sans-serif;
+}
 
-  .hoverZoom:hover {
-    transform: scale(1.02);
+.hoverZoom:hover {
+  transform: scale(1.02);
 }
 
 .adminMain {
-  margin-left: 250px;
+  margin-left: 300px;
   padding: 20px;
   margin-top: 80px;
 }
@@ -37,34 +37,35 @@ button:focus,
 }
 
 /* general margin */
-.genaralBody{
+.genaralBody {
   margin-bottom: 150px;
 }
 
-.customBtn{
-  background-color:#800467;
+.customBtn {
+  background-color: #800467;
   color: #fff;
 }
 
-.customBtn:hover{
+.customBtn:hover {
   background-color: #80146A;
   color: #fff;
   font-weight: bolder;
 }
-  
-  
+
+
 
 
 /* #################################### remove arrow from number input */
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-    /* Firefox */
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 /* #################################### remove arrow from number input */

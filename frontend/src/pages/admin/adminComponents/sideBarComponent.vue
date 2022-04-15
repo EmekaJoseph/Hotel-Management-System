@@ -11,6 +11,8 @@
 </template>
 
 <script setup>
+import adminHeadBar from './headComponent.vue'
+import menuList from './menuListComponent.vue'
 import { inject } from 'vue'
 const cols = inject("customColors");
 const { colorSideBar, color1 } = cols
@@ -22,7 +24,7 @@ const { colorSideBar, color1 } = cols
 .sidenav {
     height: 100%;
     /* Full-height: remove this if you want "auto" height */
-    width: 250px;
+    width: 300px;
     /* Set the width of the sidebar */
     position: fixed;
     /* Fixed Sidebar (stay in place on scroll) */

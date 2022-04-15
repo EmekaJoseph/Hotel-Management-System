@@ -5,12 +5,8 @@
                 <a class="navbar-brand small fw-bold">{{ route.name }}</a>
                 <span class="d-none d-md-block shadow-sm logout-btn" @click="signOut">LOG OUT</span>
                 <nav class="d-md-none navbar">
-                    <h3
-                        class="fw-bold"
-                        data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasAdmin"
-                        aria-controls="offcanvasAdmin"
-                    >
+                    <h3 class="fw-bold" data-bs-toggle="offcanvas" data-bs-target="#offcanvasAdmin"
+                        aria-controls="offcanvasAdmin">
                         <i class="bi bi-list"></i>
                     </h3>
                 </nav>
@@ -42,7 +38,7 @@ function signOut() {
 
 <style scoped>
 .navbar {
-    margin-left: 250px;
+    margin-left: 300px;
     padding: 10px;
     background-color: #fff;
 }
