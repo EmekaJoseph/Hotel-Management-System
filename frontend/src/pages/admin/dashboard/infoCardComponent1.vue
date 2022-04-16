@@ -1,7 +1,7 @@
 <template>
-    <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="col-xl-3 col-sm-6 mb-xl-0">
         <div class="mb-4 card">
-            <div class="p-3 card-body">
+            <div class="p-4 card-body">
                 <div class="d-flex flex-row-reverse justify-content-between">
                     <div>
                         <div class="text-center">
@@ -12,8 +12,10 @@
                         <div class="numbers">
                             <p class="mb-0 text-sm text-capitalize font-weight-bold">{{ title }}
                             </p>
-                            <h5 class="mb-0 font-weight-bolder">{{ amount }} <span
-                                    class="text-sm font-weight-bolder text-success">{{ percent }}</span></h5>
+                            <h5 class="mb-0 font-weight-bolder">{{ amount }} <span class="text-sm font-weight-bolder"
+                                    :class="'text-' + (percent < 1 ? 'danger' : 'success')">
+
+                                    {{ percent }}%</span></h5>
                         </div>
                     </div>
                 </div>

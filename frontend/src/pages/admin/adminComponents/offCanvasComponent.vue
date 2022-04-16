@@ -1,20 +1,11 @@
 <template>
     <div>
-        <div
-            class="offcanvas offcanvas-start"
-            tabindex="-1"
-            id="offcanvasAdmin"
-            aria-labelledby="offcanvasAdminLabel"
-        >
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasAdmin" aria-labelledby="offcanvasAdminLabel">
             <div class="offcanvas-header">
                 <span id="offcanvasAdminLabel text-muted">
                     <img src="@/assets/house34_logo2.png" width="90" alt />
                 </span>
-                <button
-                    type="button"
-                    class="btn btn-link text-white fs-1"
-                    data-bs-dismiss="offcanvas"
-                >
+                <button type="button" class="btn btn-link text-white fs-1" data-bs-dismiss="offcanvas">
                     <i class="bi bi-x"></i>
                 </button>
             </div>
@@ -37,6 +28,7 @@
 import { inject } from 'vue'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
+import menuList from './menuListComponent.vue'
 const cols = inject("customColors");
 const { color1, color2, colorThick } = cols
 

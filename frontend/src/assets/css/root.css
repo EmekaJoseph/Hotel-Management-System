@@ -25,7 +25,7 @@ html * {
 }
 
 .adminMain {
-  margin-left: 300px;
+  margin-left: 250px;
   padding: 20px;
   margin-top: 80px;
 }
@@ -52,6 +52,10 @@ html * {
   font-weight: bolder;
 }
 
+
+.dropdown-toggle::after {
+  display: none;
+}
 
 
 

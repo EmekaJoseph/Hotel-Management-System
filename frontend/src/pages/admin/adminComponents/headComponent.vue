@@ -38,7 +38,7 @@ function signOut() {
 
 <style scoped>
 .navbar {
-    margin-left: 300px;
+    margin-left: 250px;
     padding: 10px;
     background-color: #fff;
 }

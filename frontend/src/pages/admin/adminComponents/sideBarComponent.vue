@@ -24,7 +24,7 @@ const { colorSideBar, color1 } = cols
 .sidenav {
     height: 100%;
     /* Full-height: remove this if you want "auto" height */
-    width: 300px;
+    width: 250px;
     /* Set the width of the sidebar */
     position: fixed;
     /* Fixed Sidebar (stay in place on scroll) */
