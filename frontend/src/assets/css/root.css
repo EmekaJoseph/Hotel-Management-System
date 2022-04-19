@@ -58,6 +58,17 @@ html * {
 }
 
 
+.card-header {
+  background-color: #f3ebf1;
+  color: #400434;
+  padding-block: 15px;
+}
+
+.table> :not(:first-child) {
+  border-top: 0;
+}
+
+
 
 /* #################################### remove arrow from number input */
 /* Chrome, Safari, Edge, Opera */

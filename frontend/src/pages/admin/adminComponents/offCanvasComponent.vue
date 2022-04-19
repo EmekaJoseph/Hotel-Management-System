@@ -11,7 +11,7 @@
             </div>
 
             <!-- menu -->
-            <menuList />
+            <menuList showOn='offcanvas' />
 
             <div class="offcanvas-body"></div>
             <span class="logOutSection">

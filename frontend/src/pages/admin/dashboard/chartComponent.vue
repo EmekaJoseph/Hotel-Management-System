@@ -1,5 +1,5 @@
 <template>
-    <div class="col-xl-6 col-md-12">
+    <div class="col-xl-7 col-md-12">
         <div class="card">
             <div class="card-header border-0 fw-bold">
                 Analysis (6 Months)
@@ -26,8 +26,4 @@
 
 <script setup>
 import LineChart from './lineChart'
-
 </script>
-
-<style scoped>
-</style>

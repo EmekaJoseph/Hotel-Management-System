@@ -1,8 +1,8 @@
 <template>
-    <div class="col-xl-5 col-md-12">
+    <div class="col-md-12">
         <div class="card h-100">
             <div class="card-header border-0 fw-bold">
-                Recents
+                Details ii
                 <span class="float-end optionsBtn">
                     <div class="dropdown">
                         <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown"
