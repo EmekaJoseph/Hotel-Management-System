@@ -9,9 +9,7 @@
                     <img src="@/assets/house34_logo2.png" width="130" />
                 </span>
                 <div class="text-center text-white fw-bold" style="font-size: 100px;">404</div>
-                <div
-                    class="text-center text-white"
-                >The page you requested does not exist in this application.</div>
+                <div class="text-center text-white">The page you requested does not exist in this application.</div>
                 <div class="text-center mt-3">
                     <router-link class="btn btn-warning text-decoration-none" to="/">
                         Home Page

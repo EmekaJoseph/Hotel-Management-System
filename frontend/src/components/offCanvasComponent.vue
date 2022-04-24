@@ -1,88 +1,26 @@
 <script setup>
 import { inject } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-const router = useRouter()
-const route = useRoute()
-
 const cols = inject("customColors");
 const { color1, color2 } = cols
-
-
-
-
-function goTo(destination) {
-    router.push({
-        name: destination,
-    })
-    // console.log(themeColor);
-}
-
-const isActive = (str) => {
-    return (route.name == str) ? true : false
-}
-
-
 </script>
 
 <template>
     <div>
-        <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
-            id="offcanvasGeneral"
-            aria-labelledby="offcanvasGeneralLabel"
-        >
-            <div class="offcanvas-header">
-                <h5 id="offcanvasGeneralLabel text-muted">
-                    MENU
-                    <i class="bi bi-list"></i>
-                </h5>
-                <button
-                    type="button"
-                    class="btn-close text-reset"
-                    data-bs-dismiss="offcanvas"
-                    aria-label="Close"
-                ></button>
-            </div>
-            <div class="offcanvas-body mt-3">
-                <ul class="list-group list-group-flush">
-                    <li
-                        @click="goTo('Home')"
-                        class="list-group-item"
-                        :class="{ 'active': isActive('Home') }"
-                        data-bs-dismiss="offcanvas"
-                    >
-                        <i class="bi bi-house-fill"></i> Home
-                    </li>
-                    <li
-                        @click="goTo('Gallery')"
-                        class="list-group-item"
-                        :class="{ 'active': isActive('Gallery') }"
-                        data-bs-dismiss="offcanvas"
-                    >
-                        <i class="bi bi-images"></i> Gallery
-                    </li>
-                    <li
-                        @click="goTo('About')"
-                        class="list-group-item"
-                        :class="{ 'active': isActive('About') }"
-                        data-bs-dismiss="offcanvas"
-                    >
-                        <i class="bi bi-journals"></i> About
-                    </li>
-                </ul>
-            </div>
-            <div class="py-2">
-                <a
-                    @click.prevent
-                    class="accountSection"
-                    href="#"
-                    data-bs-toggle="modal"
-                    data-bs-target="#signInModal"
-                >
-                    <i class="bi bi-box-arrow-right"></i>&nbsp;Sign In
-                </a>
-            </div>
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasGeneral"
+            aria-labelledby="offcanvasGeneralLabel">
+            <ul>
+                <li data-bs-dismiss="offcanvas">
+                    <router-link to="/about"> About Us</router-link>
+                </li>
+                <li data-bs-dismiss="offcanvas">
+                    <router-link to="/gallery"> Gallery</router-link>
+                </li>
+                <li data-bs-dismiss="offcanvas">
+                    <router-link to="/"> Home</router-link>
+                </li>
+
+            </ul>
+
         </div>
     </div>
 </template>
@@ -91,31 +29,32 @@ const isActive = (str) => {
 
 <style scoped>
 .offcanvas {
-    width: 250px;
+    height: 60px;
+    background-color: v-bind(color1);
+    display: flex;
+    align-items: center;
 }
 
-.offcanvas-header {
-    background-color: #eee;
-    /* color: #3b032f; */
+.active {
+    color: #ff0;
 }
 
-.list-group-item {
-    border: none;
-    /* font-weight: bold; */
-    margin-bottom: 15px;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
-.list-group-item.active {
-    background-color: #e9dde6;
-    /* color: #3b032f; */
-    color: v-bind(color1);
+li {
+    float: right;
 }
 
-.accountSection {
-    margin: 45px;
-    font-weight: bold;
-    font-size: 16px;
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
     text-decoration: none;
-    color: #000;
 }
 </style>
