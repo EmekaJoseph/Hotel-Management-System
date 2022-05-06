@@ -1,7 +1,7 @@
 <template>
     <div class="col-md-12">
         <div class="card h-100">
-            <div class="card-header border-0 fw-bold">
+            <div class="card-header border-0">
                 Details ii
                 <span class="float-end optionsBtn">
                     <div class="dropdown">

@@ -110,9 +110,10 @@ a:hover {
 .list-group-item .active {
     /* color: v-bind(color3); */
     font-weight: bold;
-    background-color: v-bind(colorActive);
-    border-radius: 10px;
+    /* background-color: v-bind(colorActive); */
+    /* border-radius: 10px; */
     margin-left: 10px;
+    border-left: 2px solid v-bind(color2);
 }
 
 .myaccordion {

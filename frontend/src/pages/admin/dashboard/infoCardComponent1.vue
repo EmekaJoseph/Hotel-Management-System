@@ -14,7 +14,6 @@
                             </p>
                             <h5 class="mb-0 font-weight-bolder">{{ amount }} <span class="text-sm font-weight-bolder"
                                     :class="'text-' + (percent < 1 ? 'danger' : 'success')">
-
                                     {{ percent }}%</span></h5>
                         </div>
                     </div>

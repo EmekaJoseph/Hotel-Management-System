@@ -4,9 +4,9 @@
         <div class="col-md-12">
             <div class="row">
                 <infoCard1 title="Today's Money" amount="N53,000" percent="+46" />
-                <infoCard1 title="Today's Money" amount="N43,000" percent="-55" />
-                <infoCard1 title="Today's Money" amount="N20,000" percent="+55" />
-                <infoCard1 title="Today's Money" amount="N89,000" percent="-35" />
+                <infoCard1 title="Another Money" amount="N43,000" percent="-55" />
+                <infoCard1 title="Previous Money" amount="N20,000" percent="+55" />
+                <infoCard1 title="Last Money" amount="N89,000" percent="-35" />
             </div>
         </div>
 

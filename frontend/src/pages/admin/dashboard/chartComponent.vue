@@ -1,7 +1,7 @@
 <template>
     <div class="col-xl-7 col-md-12">
         <div class="card">
-            <div class="card-header border-0 fw-bold">
+            <div class="card-header border-0">
                 Analysis (6 Months)
                 <span class="float-end optionsBtn">
                     <div class="dropdown">

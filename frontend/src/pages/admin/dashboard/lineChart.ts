@@ -59,16 +59,23 @@ export default defineComponent({
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
                 {
-                    label: 'Bookings',
-                    backgroundColor: '#1B8000',
-                    data: [40, 39, 10, 40, 39, 80, 40]
+                    // label: 'Bookings',
+                    fill: true,
+                    tension: 0.3,
+                    backgroundColor: '#2c0323',
+                    data: [40, 39, 10, 40, 39, 80, 40],
                 }
             ]
         }
 
         const chartOptions = {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                },
+            },
         }
 
         return () =>

@@ -39,13 +39,9 @@
                                     <nav aria-label="Page navigation">
                                         <ul class="pagination pagination-sm">
                                             <li class="page-item">
-                                                <a
-                                                    @click.prevent="album.currentIndex--"
-                                                    class="page-link"
-                                                    :class="{ 'disabledBtn': limit.prev() }"
-                                                    href="#"
-                                                    aria-label="Previous"
-                                                >
+                                                <a @click.prevent="album.currentIndex--" class="page-link"
+                                                    :class="{ 'disabledBtn': limit.prev() }" href="#"
+                                                    aria-label="Previous">
                                                     <span aria-hidden="true">
                                                         <i class="bi bi-chevron-left"></i>
                                                     </span>
@@ -54,13 +50,8 @@
                                             <li>&nbsp;</li>
                                             <li>&nbsp;</li>
                                             <li class="page-item">
-                                                <a
-                                                    @click.prevent="album.currentIndex++"
-                                                    class="page-link"
-                                                    :class="{ 'disabledBtn': limit.next() }"
-                                                    href="#"
-                                                    aria-label="Next"
-                                                >
+                                                <a @click.prevent="album.currentIndex++" class="page-link"
+                                                    :class="{ 'disabledBtn': limit.next() }" href="#" aria-label="Next">
                                                     <span aria-hidden="true">
                                                         <i class="bi bi-chevron-right"></i>
                                                     </span>
@@ -76,9 +67,7 @@
                             </div>
                             <small class="text-center m-2">
                                 {{ album.currentIndex + 1 }}/{{ album.photos.length }} -
-                                <span
-                                    class="fw-bold"
-                                >{{ album.currentPhoto.title }}</span>
+                                <span class="fw-bold">{{ album.currentPhoto.title }}</span>
                             </small>
                         </div>
                     </div>
@@ -106,19 +95,13 @@
                                                 <div class="row g-3">
                                                     <div class="col-md-6">
                                                         <label class="fw-bold small">Check in:</label>
-                                                        <DatepickerVue
-                                                            :enableTimePicker="false"
-                                                            placeholder="Select Date"
-                                                            autoApply
-                                                        />
+                                                        <DatepickerVue :enableTimePicker="false"
+                                                            placeholder="Select Date" autoApply />
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label class="fw-bold small">Check out:</label>
-                                                        <DatepickerVue
-                                                            :enableTimePicker="false"
-                                                            placeholder="Select Date"
-                                                            autoApply
-                                                        />
+                                                        <DatepickerVue :enableTimePicker="false"
+                                                            placeholder="Select Date" autoApply />
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -130,31 +113,18 @@
                                                 <div class="row g-3">
                                                     <div class="col-md-4">
                                                         <label class="fw-bold small">Adults:</label>
-                                                        <input
-                                                            v-model="bookingForm.numAdults"
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder="0"
-                                                        />
+                                                        <input v-model="bookingForm.numAdults" type="number"
+                                                            class="form-control" placeholder="0" />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="fw-bold small">Children:</label>
-                                                        <input
-                                                            v-model="bookingForm.numChildren"
-                                                            type="number"
-                                                            class="form-control"
-                                                            placeholder="0"
-                                                        />
+                                                        <input v-model="bookingForm.numChildren" type="number"
+                                                            class="form-control" placeholder="0" />
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label class="fw-bold small">Total:</label>
-                                                        <input
-                                                            v-model="bookingForm.numTotal"
-                                                            type="number"
-                                                            class="form-control bg-white"
-                                                            placeholder="0"
-                                                            disabled
-                                                        />
+                                                        <input v-model="bookingForm.numTotal" type="number"
+                                                            class="form-control bg-white" placeholder="0" disabled />
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -165,13 +135,9 @@
                                                 <div class="row g-3">
                                                     <div class="col-md-12">
                                                         <label class="fw-bold small">Email:</label>
-                                                        <input
-                                                            v-model="bookingForm.email"
-                                                            @keyup="valdateEmail"
-                                                            type="text"
-                                                            class="form-control"
-                                                            :class="{ 'inputErr': err.email }"
-                                                        />
+                                                        <input v-model="bookingForm.email" @keyup="valdateEmail"
+                                                            type="text" class="form-control"
+                                                            :class="{ 'inputErr': err.email }" />
                                                         <small v-if="err.email" class="text-danger">
                                                             invalid email
                                                             format
@@ -189,10 +155,7 @@
                                             </fieldset>
                                         </div>
                                         <div class="col-md-12">
-                                            <button
-                                                @click.prevent
-                                                class="customBtn btn btn-lg w-100"
-                                            >Continue</button>
+                                            <button @click.prevent class="customBtn btn btn-lg w-100">Continue</button>
                                         </div>
                                     </div>
                                 </form>
